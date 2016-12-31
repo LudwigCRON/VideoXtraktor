@@ -1,0 +1,29 @@
+<!-- title of the page for the user -->
+<header class="titlebar">
+  <button class="titlebar__button" onclick="app.open('dashboard.main')">&lt;</button>
+  <h1>Xtraktor</h1>
+  <section class="titlebar__group">
+    <button id="exec-btn" class="titlebar__group__button">Execute</button>
+    <button id="add-group-btn" class="titlebar__group__button">Add Group</button>
+    <button id="remove-btn" class="titlebar__group__button">Remove</button>
+  </section>
+  <div class="progress"></div>
+  <button class="close-btn"></button>
+</header>
+<div>
+  <!-- button to select which view to use next -->
+  <div class="panel--config">
+    <button class="input-file-trigger" onclick="CutChapter.getInfo()">
+      Select a video
+      <!-- <input class="input-file" type="file" name="video" tabindex=0> -->
+    </button>
+    <button class="input-file-trigger">
+      Output folder
+      <!-- <input class="input-file" type="file" name="folder" tabindex=1 webkitdirectory> -->
+    </button>
+  </div>
+  <div class="panel--main">
+    <!-- table with metadata and selection for export -->
+    <div class="table"></div>
+  </div>
+</div>
