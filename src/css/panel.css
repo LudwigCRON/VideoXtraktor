@@ -1,0 +1,49 @@
+/*
+ * Panels
+ */
+
+.split {
+  display: flex;
+  height: 100%;
+  border: 1px solid black;
+}
+
+.split > :nth-child(1) {
+  overflow: scroll;
+}
+
+.split > :nth-child(2) {
+    flex-grow: 1;
+}
+
+/* Vertical */
+
+.split.vertical {
+  flex-direction: column;
+}
+
+.split.vertical > :nth-child(1) {
+  resize: vertical;
+}
+
+/* Horizontal */
+
+.split.horizontal {
+  flex-direction: row;
+}
+
+.split.horizontal > :nth-child(1) {
+  resize: horizontal;
+}
+
+.panel--config {
+  display: inline-flex;
+  min-width: 12rem;
+  flex-direction: column;
+}
+
+.panel--main {
+  display: inline-flex;
+  min-width: 30rem;
+  flex-direction: column;
+}

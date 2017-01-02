@@ -17,7 +17,7 @@ var CutChapter = (function (app) {
     'get_chapters': (path, callback) => {
       results = ''
       app.getMetaData(path, (data) => { // GET LIVE DATA
-        results += data.toString()
+        results += data
       }, (code) => { // FFMPEG END
         // get bitrate
         // bitrate:\s([0-9]+.?[0-9]*)\s(.*)
@@ -157,6 +157,7 @@ function createItem (chapter) {
 function createGroup (label) {
   var groupElt = document.createElement('li')
   var spanElt = document.createElement('span')
+  spanElt.className = 'group__title'
   spanElt.textContent = label
   spanElt.contentEditable = true
   groupElt.appendChild(spanElt)
@@ -212,17 +213,44 @@ document.querySelector('#remove-btn').addEventListener('click', (e) => {
 // launch the extraction
 document.querySelector('#exec-btn').addEventListener('click', (e) => {
   // get chapters updated
-  var tasks = []
-  for (let i = 0; i < treeView.treeRoot.children.length; i++) {
+  let chapters = treeView.treeRoot.querySelectorAll('.chapter')
+  let tasks = []
+  for (let i = 0; i < chapters.length; i++) {
     tasks.push({
-      'title': treeView.treeRoot.children[i].querySelector('.chapter__title').textContent,
-      'start': treeView.treeRoot.children[i].querySelector('.chapter__start').textContent,
-      'end': treeView.treeRoot.children[i].querySelector('.chapter__end').textContent,
-      'origin': treeView.treeRoot.children[i].querySelector('.chapter__origin').textContent
+      'title': chapters[i].querySelector('.chapter__title').textContent,
+      'start': chapters[i].querySelector('.chapter__start').textContent,
+      'end': chapters[i].querySelector('.chapter__end').textContent,
+      'origin': chapters[i].querySelector('.chapter__origin').textContent
     })
   }
-  console.log(mapLimit, tasks)
-  mapLimit(tasks, 4, app.extract, (err, results) => {
+  // extract first the chapters
+  /* mapLimit(tasks, 4, app.extract, (err, results) => {
+    if (err !== null) process.stdout.write(err)
+    process.stdout.write(results.toString())
+  }) */
+  // then group them
+  let groupsDOM = treeView.treeRoot.querySelectorAll('.group')
+  console.log(groupsDOM)
+  let groups = []
+  for (let i = 0; i < groupsDOM.length; i++) {
+    let chapters = groupsDOM[i].nextSibling.querySelectorAll('.chapter')
+    console.log(chapters)
+    let g = {}
+    g['title'] = groupsDOM[i].querySelector('.group__title').textContent
+    g['length'] = chapters.length
+    for (let j = 0; j < chapters.length; i++) {
+      g[j] = {
+        'title': chapters[j].querySelector('.chapter__title').textContent,
+        'start': chapters[j].querySelector('.chapter__start').textContent,
+        'end': chapters[j].querySelector('.chapter__end').textContent,
+        'origin': chapters[j].querySelector('.chapter__origin').textContent
+      }
+    }
+    console.log(g)
+    groups.push(g)
+  }
+  console.log(groups)
+  mapLimit(groups, 4, app.concatenate, (err, results) => {
     if (err !== null) process.stdout.write(err)
     process.stdout.write(results.toString())
   })

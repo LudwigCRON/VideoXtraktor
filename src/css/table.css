@@ -1,0 +1,70 @@
+/*
+ * Table with group
+ */
+
+.table {
+  display: table;
+  width: 100%;
+}
+
+.table__header {
+  display: block;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid #1c1f1f;
+}
+
+.table__header > * {
+  display: inline-block;
+  border-right: 1px solid #fff;
+  width: 29%;
+}
+
+.table__header > *:last-child {
+  border: none;
+}
+
+.table__header > .chapter__title {
+  width: 40%;
+}
+
+.chapter {
+  display: table-row;
+  width: 100%;
+  border-bottom: 1px solid #444a4a;
+}
+
+.chapter:nth-child(2n+1) {
+  background: rgba(255, 255, 255, 0.1)
+}
+
+.chapter:hover {
+  background: rgba(255, 255, 255, 0.3)
+}
+
+.table .chapter.selected {
+  background: rgba(200, 200, 255, 0.3);
+}
+
+
+.chapter > .chapter__title {
+  display: table-cell;
+  width: 40%;
+}
+
+.chapter > .chapter__start, .chapter > .chapter__end {
+  display: table-cell;
+  width: 30%;
+}
+
+.chapter > .chapter__origin, .chapter > .chapter__framerate {
+  display: none !important;
+}
+
+.chapter > *:first-child {
+  width: 20px;
+}
+
+*[contenteditable='true'] {
+  background: #39D2B4;
+}

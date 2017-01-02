@@ -4,7 +4,6 @@ const path = require('path') // Module to manipulate file/directory path
 const appRootDir = require('app-root-dir').get()
 const spawn = require('child_process').spawn // Module to execute command line
 const os = require('os') // Module to detect on which platform we are
-var utf8 = require('utf8') // for windows and avoid odd characters
 var fs = require('fs') // Module to read and write files
 fs.isDir = (dpath) => {
   try {
@@ -126,7 +125,9 @@ var app = (function (spawn, path) {
         process.stdout.write(FFMPEGPATH + ' ' + ['-i', fp, '-f', 'ffmetadata', '-'].join(' '))
       }
       // ffMET.stdout.on('data', callback)
-      ffMET.stderr.on('data', callback)
+      ffMET.stderr.on('data', (data) => {
+        callback(data.toString('utf-8'))
+      })
       ffMET.on('close', code)
       ffMET.on('error', error)
     },
@@ -147,7 +148,7 @@ var app = (function (spawn, path) {
       } else {
         ffEXT = spawn(FFMPEGPATH, ['-i', '' + chapter.origin + '', '-c:v', 'libx264', '-crf', '18', '-an', '-ss', chapter.start, '-to', chapter.end, '-f', 'mp4', path.join(outputFolder, chapter.title.replace(':', ' ').replace('§', 'Para')) + '.mp4', '-y'])
       }
-      ffEXT.stdout.on('data', (data) => {
+      ffEXT.stderr.on('data', (data) => {
         __writeStdOut(timestamp, data)
       })
       ffEXT.on('close', (code) => {
@@ -156,6 +157,73 @@ var app = (function (spawn, path) {
         callback(code, tmp)
       })
       // ffEXT.on('error', error)
+    },
+    'concatenate': (group, callback) => {
+      // for each element look if exists
+      let ready = false
+      let i = 0
+      let conversion = false
+      let hasError = false
+      while (i < group.length && !ready) {
+        let chapter = group[i]
+        if (!conversion) {
+          ready = fs.existSync(path.join(outputFolder, chapter.title.replace(':', ' ').replace('§', 'Para')) + '.mp4')
+          process.stdout.write(path.join(outputFolder, chapter.title.replace(':', ' ').replace('§', 'Para') + '.mp4') + ready ? ' true\n' : ' false\n')
+          if (ready) i++
+          else {
+            conversion = true
+            app.extract(chapter, () => {
+              ready = fs.existSync(path.join(outputFolder, chapter.title.replace(':', ' ').replace('§', 'Para')) + '.mp4')
+              conversion = false
+              if (!ready) {
+                hasError = true
+                ready = true // skip and warn of error
+              }
+              i++
+            })
+          }
+        }
+      }
+      process.stdout.write(hasError ? ' Not Ready\n' : ' All Ready\n')
+      if (ready && !hasError) {
+        let timestamp = new Date().getUTCMilliseconds()
+        stdout[timestamp] = ''
+        let tmpPath = path.join(outputFolder, group.title + '.tmp')
+        process.stdout.write('creation of ' + tmpPath + '\n')
+        // if all ready generate temp concat file
+        let wstream = fs.createWriteStream(tmpPath, {
+          flags: 'w',
+          defaultEncoding: 'utf8',
+          fd: null,
+          mode: 0o666,
+          autoClose: true
+        })
+        for (let i = 0; i < group.length; i++) {
+          wstream.write('file \'' + path.join(outputFolder, group[i].title.replace(':', ' ').replace('§', 'Para') + '.mp4') + '\'\n')
+        }
+        wstream.end()
+        // ffmpeg concat
+        let output = path.join(outputFolder, group.title.replace(':', ' ').replace('§', 'Para') + '.mp4')
+        console.log(output)
+        var ffEXT = null
+        if ((os.platform() === 'win32') && WINE) {
+          ffEXT = spawn('wine', [FFMPEGPATH, '-f', 'concat', '-i', '-c', 'copy', output, '-y'])
+        } else {
+          ffEXT = spawn(FFMPEGPATH, ['-f', 'concat', '-i', '-c', 'copy', output, '-y'])
+        }
+        ffEXT.stderr.on('data', (data) => {
+          __writeStdOut(timestamp, data)
+        })
+        ffEXT.on('close', (code) => {
+          let tmp = stdout[timestamp]
+          stdout[timestamp] = ''
+          fs.unlinkSync(tmpPath)
+          callback(code, tmp)
+        })
+        ffEXT.on('error', (err) => {
+          fs.unlinkSync(tmpPath)
+        })
+      }
     }
   }
 })(spawn, path)
@@ -170,18 +238,3 @@ document.onreadystatechange = () => {
     app.init(target)
   }
 }
-
-// Electron's UI library. We will need it for later.
-// var shell = require('shell');
-//
-//     $('.flipster').on('click', 'a', function (e) {
-//
-//         e.preventDefault();
-//
-//         // Open URL with default browser.
-//
-//         shell.openExternal(e.target.href);
-//
-//     });
-//
-// });
