@@ -210,6 +210,13 @@ document.querySelector('#remove-btn').addEventListener('click', (e) => {
   }
 }, false)
 
+// clone items
+document.querySelector('#clone-btn').addEventListener('click', (e) => {
+  for (let i = 0; i < treeView.selectedNodes.length; i++) {
+    if (treeView.selectedNodes[i].className.indexOf('item') > 0) treeView.append(treeView.selectedNodes[i].cloneNode(true), 'item', null)
+  }
+}, false)
+
 // launch the extraction
 document.querySelector('#exec-btn').addEventListener('click', (e) => {
   // get chapters updated
@@ -224,34 +231,31 @@ document.querySelector('#exec-btn').addEventListener('click', (e) => {
     })
   }
   // extract first the chapters
-  /* mapLimit(tasks, 4, app.extract, (err, results) => {
+  mapLimit(tasks, 4, app.extract, (err, results) => {
     if (err !== null) process.stdout.write(err)
     process.stdout.write(results.toString())
-  }) */
+  })
   // then group them
   let groupsDOM = treeView.treeRoot.querySelectorAll('.group')
-  console.log(groupsDOM)
-  let groups = []
+  var groups = []
   for (let i = 0; i < groupsDOM.length; i++) {
     let chapters = groupsDOM[i].nextSibling.querySelectorAll('.chapter')
-    console.log(chapters)
-    let g = {}
-    g['title'] = groupsDOM[i].querySelector('.group__title').textContent
-    g['length'] = chapters.length
-    for (let j = 0; j < chapters.length; i++) {
-      g[j] = {
+    var g = {'title': '', 'length': '', 'items': []}
+    g.title = groupsDOM[i].querySelector('.group__title').textContent
+    g.length = chapters.length
+    for (let j = 0; j < chapters.length; j++) {
+      g.items.push({
         'title': chapters[j].querySelector('.chapter__title').textContent,
         'start': chapters[j].querySelector('.chapter__start').textContent,
         'end': chapters[j].querySelector('.chapter__end').textContent,
         'origin': chapters[j].querySelector('.chapter__origin').textContent
-      }
+      })
     }
-    console.log(g)
     groups.push(g)
   }
   console.log(groups)
   mapLimit(groups, 4, app.concatenate, (err, results) => {
-    if (err !== null) process.stdout.write(err)
+    if (err !== null) process.stdout.write(err.toString())
     process.stdout.write(results.toString())
   })
 }, false)

@@ -165,15 +165,15 @@ var app = (function (spawn, path) {
       let conversion = false
       let hasError = false
       while (i < group.length && !ready) {
-        let chapter = group[i]
+        let chapter = group.items[i]
         if (!conversion) {
-          ready = fs.existSync(path.join(outputFolder, chapter.title.replace(':', ' ').replace('§', 'Para')) + '.mp4')
+          ready = fs.existsSync(path.join(outputFolder, chapter.title.replace(':', ' ').replace('§', 'Para')) + '.mp4')
           process.stdout.write(path.join(outputFolder, chapter.title.replace(':', ' ').replace('§', 'Para') + '.mp4') + ready ? ' true\n' : ' false\n')
           if (ready) i++
           else {
             conversion = true
             app.extract(chapter, () => {
-              ready = fs.existSync(path.join(outputFolder, chapter.title.replace(':', ' ').replace('§', 'Para')) + '.mp4')
+              ready = fs.existsSync(path.join(outputFolder, chapter.title.replace(':', ' ').replace('§', 'Para')) + '.mp4')
               conversion = false
               if (!ready) {
                 hasError = true
@@ -188,7 +188,7 @@ var app = (function (spawn, path) {
       if (ready && !hasError) {
         let timestamp = new Date().getUTCMilliseconds()
         stdout[timestamp] = ''
-        let tmpPath = path.join(outputFolder, group.title + '.tmp')
+        let tmpPath = path.join(outputFolder, group.title.replace(':', ' ').replace('§', 'Para') + '.tmp')
         process.stdout.write('creation of ' + tmpPath + '\n')
         // if all ready generate temp concat file
         let wstream = fs.createWriteStream(tmpPath, {
@@ -199,7 +199,7 @@ var app = (function (spawn, path) {
           autoClose: true
         })
         for (let i = 0; i < group.length; i++) {
-          wstream.write('file \'' + path.join(outputFolder, group[i].title.replace(':', ' ').replace('§', 'Para') + '.mp4') + '\'\n')
+          wstream.write('file \'' + path.join(outputFolder, group.items[i].title.replace(':', ' ').replace('§', 'Para') + '.mp4') + '\'\n')
         }
         wstream.end()
         // ffmpeg concat
@@ -207,9 +207,9 @@ var app = (function (spawn, path) {
         console.log(output)
         var ffEXT = null
         if ((os.platform() === 'win32') && WINE) {
-          ffEXT = spawn('wine', [FFMPEGPATH, '-f', 'concat', '-i', '-c', 'copy', output, '-y'])
+          ffEXT = spawn('wine', [FFMPEGPATH, '-f', 'concat', '-i', tmpPath, '-c', 'copy', output, '-y'])
         } else {
-          ffEXT = spawn(FFMPEGPATH, ['-f', 'concat', '-i', '-c', 'copy', output, '-y'])
+          ffEXT = spawn(FFMPEGPATH, ['-f', 'concat', '-i', tmpPath, '-c', 'copy', output, '-y'])
         }
         ffEXT.stderr.on('data', (data) => {
           __writeStdOut(timestamp, data)
