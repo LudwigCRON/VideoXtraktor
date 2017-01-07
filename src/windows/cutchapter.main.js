@@ -29,6 +29,7 @@ var CutChapter = (function (app) {
           chapter.end = parseFloat(match[2]) - 1 // new file always has 1 second extra due to animation
           chapter.title = match[3]
           chapter.origin = path
+          console.log(chapter)
           chapters.push(chapter)
           match = regChapter.exec(results)
         }
@@ -104,44 +105,20 @@ var CutChapter = (function (app) {
 function createItem (chapter) {
   var itemElt = document.createElement('li')
   itemElt.className = 'chapter'
-  var iconElt = document.createElement('div')
-  iconElt.classList.add('icon')
-  itemElt.appendChild(iconElt)
   var spanElt = document.createElement('span')
   spanElt.className = 'chapter__title'
   spanElt.textContent = chapter.title
-  spanElt.contentEditable = false
-  spanElt.addEventListener('dblclick', (e) => {
-    if (e.target.getAttribute('contentEditable') === 'true') {
-      e.target.setAttribute('contentEditable', false)
-    } else {
-      e.target.setAttribute('contentEditable', true)
-    }
-  })
+  spanElt.contentEditable = true
   itemElt.appendChild(spanElt)
   spanElt = document.createElement('span')
   spanElt.className = 'chapter__start'
   spanElt.textContent = app.toFormattedTime(chapter.start, chapter.framerate)
-  spanElt.contentEditable = false
-  spanElt.addEventListener('dblclick', (e) => {
-    if (e.target.getAttribute('contentEditable') === 'true') {
-      e.target.setAttribute('contentEditable', false)
-    } else {
-      e.target.setAttribute('contentEditable', true)
-    }
-  })
+  spanElt.contentEditable = true
   itemElt.appendChild(spanElt)
   spanElt = document.createElement('span')
   spanElt.className = 'chapter__end'
   spanElt.textContent = app.toFormattedTime(chapter.end, chapter.framerate)
-  spanElt.contentEditable = false
-  spanElt.addEventListener('dblclick', (e) => {
-    if (e.target.getAttribute('contentEditable') === 'true') {
-      e.target.setAttribute('contentEditable', false)
-    } else {
-      e.target.setAttribute('contentEditable', true)
-    }
-  })
+  spanElt.contentEditable = true
   itemElt.appendChild(spanElt)
   spanElt = document.createElement('span')
   spanElt.className = 'chapter__framerate'
@@ -174,10 +151,10 @@ document.querySelector('.panel--main').addEventListener('click', (e) => {
   // delselect rows
   if (e.target.className.indexOf('panel--main') > -1) treeView.clearSelection()
   // disable the contentEditable
-  var elem = treeView.treeRoot.querySelectorAll('*[contenteditable]')
+  /* var elem = treeView.treeRoot.querySelectorAll('*[contenteditable]')
   for (let i = 0; i < elem.length; i++) {
     elem[i].setAttribute('contenteditable', false)
-  }
+  }*/
 }, false)
 
 // create an item or a group if an item is selected
@@ -215,10 +192,13 @@ document.querySelector('#clone-btn').addEventListener('click', (e) => {
   for (let i = 0; i < treeView.selectedNodes.length; i++) {
     if (treeView.selectedNodes[i].className.indexOf('item') > 0) treeView.append(treeView.selectedNodes[i].cloneNode(true), 'item', null)
   }
+  treeView.clearSelection()
 }, false)
 
 // launch the extraction
 document.querySelector('#exec-btn').addEventListener('click', (e) => {
+  // get number of process
+  let pNb = parseInt(document.querySelector('[name="processNb"]').value, 10)
   // get chapters updated
   let chapters = treeView.treeRoot.querySelectorAll('.chapter')
   let tasks = []
@@ -231,7 +211,7 @@ document.querySelector('#exec-btn').addEventListener('click', (e) => {
     })
   }
   // extract first the chapters
-  mapLimit(tasks, 4, app.extract, (err, results) => {
+  mapLimit(tasks, pNb, app.extract, (err, results) => {
     if (err !== null) process.stdout.write(err)
     process.stdout.write(results.toString())
   })
@@ -254,7 +234,7 @@ document.querySelector('#exec-btn').addEventListener('click', (e) => {
     groups.push(g)
   }
   console.log(groups)
-  mapLimit(groups, 4, app.concatenate, (err, results) => {
+  mapLimit(groups, pNb, app.concatenate, (err, results) => {
     if (err !== null) process.stdout.write(err.toString())
     process.stdout.write(results.toString())
   })

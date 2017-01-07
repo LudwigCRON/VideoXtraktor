@@ -61,10 +61,19 @@
   display: none !important;
 }
 
-.chapter > *:first-child {
-  width: 20px;
+.group {
+  list-style-type: none;
 }
 
-*[contenteditable='true'] {
+.children, .tree {
+  width: 100%;
+  display: table;
+}
+
+.children .chapter__title {
+  padding-left: 20px;
+}
+
+.chapter > *:focus, .chapter > *:active{
   background: #39D2B4;
 }

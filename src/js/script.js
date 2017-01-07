@@ -88,10 +88,10 @@ var app = (function (spawn, path) {
   var stdout = {}
 
   function __toFormattedTime (t) {
-    var ms = parseInt(t * 1000, 10) % 1000
-    var s = parseInt(t - ms / 1000, 10) % 60
-    var mn = parseInt(t - s - ms / 1000, 10) / 60 % 60
-    var hr = parseInt(t - mn * 60 - s - ms / 1000, 10) / 3600 % 24
+    let ms = parseInt(t * 1000, 10) % 1000
+    let s = parseInt(t - ms / 1000, 10) % 60
+    let mn = (t > 60) ? parseInt(t - s - ms / 1000, 10) / 60 % 60 : 0
+    let hr = (t > 3600) ? parseInt(t - mn * 60 - s - ms / 1000, 10) / 3600 % 24 : 0
     return ('0' + hr).slice(-2) + ':' + ('0' + mn).slice(-2) + ':' + ('0' + s).slice(-2) + '.' + ('00' + ms).slice(-3)
   }
 
@@ -124,6 +124,8 @@ var app = (function (spawn, path) {
         ffMET = spawn(FFMPEGPATH, ['-i', fp, '-f', 'ffmetadata', '-'])
         process.stdout.write(FFMPEGPATH + ' ' + ['-i', fp, '-f', 'ffmetadata', '-'].join(' '))
       }
+      // keep it active
+      ffMET.stdin.resume()
       // ffMET.stdout.on('data', callback)
       ffMET.stderr.on('data', (data) => {
         callback(data.toString('utf-8'))
@@ -148,6 +150,7 @@ var app = (function (spawn, path) {
       } else {
         ffEXT = spawn(FFMPEGPATH, ['-i', '' + chapter.origin + '', '-c:v', 'libx264', '-crf', '18', '-an', '-ss', chapter.start, '-to', chapter.end, '-f', 'mp4', path.join(outputFolder, chapter.title.replace(':', ' ').replace('§', 'Para')) + '.mp4', '-y'])
       }
+      ffEXT.stdin.resume()
       ffEXT.stderr.on('data', (data) => {
         __writeStdOut(timestamp, data)
       })
@@ -211,6 +214,7 @@ var app = (function (spawn, path) {
         } else {
           ffEXT = spawn(FFMPEGPATH, ['-f', 'concat', '-i', tmpPath, '-c', 'copy', output, '-y'])
         }
+        ffEXT.stdin.resume()
         ffEXT.stderr.on('data', (data) => {
           __writeStdOut(timestamp, data)
         })

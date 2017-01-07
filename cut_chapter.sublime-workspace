@@ -1,0 +1,1169 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"class",
+				"classList"
+			],
+			[
+				"tree",
+				"treeView"
+			],
+			[
+				"list-style",
+				"list-style-type"
+			],
+			[
+				"ron",
+				"ron_p"
+			],
+			[
+				"outpu",
+				"output_offset"
+			],
+			[
+				"songs",
+				"songs_url"
+			],
+			[
+				"inpu",
+				"input_offset"
+			],
+			[
+				"get",
+				"get_args"
+			],
+			[
+				"temp",
+				"temperature"
+			],
+			[
+				"with",
+				"with_header"
+			],
+			[
+				"for",
+				"format_data"
+			],
+			[
+				"find",
+				"findall"
+			],
+			[
+				"lines",
+				"lines_f"
+			],
+			[
+				"pdf",
+				"pdf_files"
+			],
+			[
+				"r",
+				"r_title"
+			],
+			[
+				"line",
+				"lines_f"
+			],
+			[
+				"data",
+				"data_bin"
+			],
+			[
+				"if",
+				"ifmain\tif __name__ == '__main__'"
+			],
+			[
+				"FRAM",
+				"FRAMERATE_30"
+			],
+			[
+				"res",
+				"res_1080p_rbtn"
+			],
+			[
+				"video",
+				"video_file_filter"
+			],
+			[
+				"scre",
+				"screen_counter"
+			],
+			[
+				"save",
+				"save_btn"
+			],
+			[
+				"sc",
+				"screen_selection_lbl"
+			],
+			[
+				"scren",
+				"screen_counter"
+			],
+			[
+				"screen",
+				"screen_counter"
+			],
+			[
+				"vi",
+				"video_src_lst"
+			],
+			[
+				"client",
+				"clientX"
+			],
+			[
+				"dele",
+				"deleteTagByVal"
+			],
+			[
+				"can",
+				"cancelDrop"
+			],
+			[
+				"_",
+				"_ondrag"
+			],
+			[
+				"call",
+				"callback"
+			],
+			[
+				"tran",
+				"translate3D()"
+			],
+			[
+				"tag",
+				"tag--draggable"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"sys",
+				"system"
+			],
+			[
+				"month",
+				"month2"
+			],
+			[
+				"bin",
+				"binaryFile"
+			],
+			[
+				"text",
+				"text_dim"
+			],
+			[
+				"font",
+				"font-family"
+			],
+			[
+				"movi",
+				"moviesDOM"
+			],
+			[
+				"off",
+				"offsetX"
+			],
+			[
+				"movie",
+				"movieSvg"
+			],
+			[
+				"rad",
+				"radius_2"
+			],
+			[
+				"radiu",
+				"radius_sqrt3_2"
+			],
+			[
+				"con",
+				"congregation"
+			],
+			[
+				"utf8",
+				"utf8_encode"
+			],
+			[
+				"utf",
+				"utf8_db"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"len",
+				"lengthInByte"
+			],
+			[
+				"part",
+				"part1"
+			],
+			[
+				"key",
+				"keyword"
+			],
+			[
+				"pa",
+				"part1"
+			],
+			[
+				"fo",
+				"foreach\tforeach …"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"stream_g",
+				"stream_get_contents"
+			],
+			[
+				"ab",
+				"abstract"
+			],
+			[
+				"root",
+				"$rootScope\tAngularJS"
+			],
+			[
+				"TalksA",
+				"TalksAPI"
+			],
+			[
+				"ng-",
+				"ng-checked\tAngularJS"
+			],
+			[
+				"$sc",
+				"$scope\tAngularJS"
+			],
+			[
+				"Talk",
+				"TalksApp"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"ng-c",
+				"ng-controller\tAngularJS"
+			],
+			[
+				"ng-cl",
+				"ng-click\tAngularJS"
+			],
+			[
+				"ng-re",
+				"ng-repeat\tAngularJS"
+			],
+			[
+				"MGR",
+				"MGR_JUMP"
+			],
+			[
+				"arg",
+				"args_stop"
+			],
+			[
+				"row",
+				"row_stop"
+			],
+			[
+				"args",
+				"args_stop_r"
+			],
+			[
+				"std_",
+				"std_logic"
+			],
+			[
+				"S_RO",
+				"S_ROWX"
+			],
+			[
+				"S_",
+				"S_ROWX"
+			],
+			[
+				"FIFO_FULL_r",
+				"fifo_full_r"
+			],
+			[
+				"fifo",
+				"fifo_full_r"
+			],
+			[
+				"FIFO",
+				"FIFO_FULL"
+			],
+			[
+				"S_Ro",
+				"S_ROWX"
+			],
+			[
+				"std",
+				"std_logic"
+			],
+			[
+				"S_R",
+				"S_ROWX"
+			],
+			[
+				"is",
+				"is_good"
+			],
+			[
+				"BRAM0_A",
+				"BRAM0_ADDRSIM"
+			],
+			[
+				"BRAM1",
+				"BRAM1_LOAD"
+			],
+			[
+				"BRA",
+				"BRAM0_LOAD"
+			],
+			[
+				"BR",
+				"BRAM_ADDR"
+			],
+			[
+				"BRAM",
+				"BRAM0_ROW"
+			],
+			[
+				"Test",
+				"TestWordFromFile"
+			],
+			[
+				"pAx",
+				"pAx2"
+			],
+			[
+				"pA",
+				"pAx1"
+			],
+			[
+				"pAy",
+				"pAy1"
+			],
+			[
+				"p",
+				"pAx1"
+			],
+			[
+				"su",
+				"squareDistance"
+			],
+			[
+				"link",
+				"linkA"
+			],
+			[
+				"pB",
+				"pBy"
+			],
+			[
+				"active",
+				"activeoutline"
+			],
+			[
+				"create",
+				"create_line"
+			],
+			[
+				"draw",
+				"drawlink"
+			],
+			[
+				"canvas",
+				"canvasx"
+			],
+			[
+				"port",
+				"portsId"
+			],
+			[
+				"h",
+				"height"
+			],
+			[
+				"lbl_",
+				"lbl_dy"
+			],
+			[
+				"lbl",
+				"lbl_dx"
+			],
+			[
+				"__",
+				"__init__"
+			],
+			[
+				"int",
+				"int_next"
+			],
+			[
+				"int_ne",
+				"int_next"
+			],
+			[
+				"int_next_del",
+				"int_next_delay"
+			],
+			[
+				"next",
+				"next_o"
+			],
+			[
+				"fir",
+				"first_done"
+			],
+			[
+				"proc",
+				"process_activation"
+			],
+			[
+				"nx",
+				"nxt_3_wr"
+			],
+			[
+				"nxt",
+				"nxt_2_wr"
+			],
+			[
+				"C_",
+				"C_MEM_WIDTH"
+			],
+			[
+				"par",
+				"parser_next"
+			],
+			[
+				"parser",
+				"parser_jump"
+			],
+			[
+				"glob",
+				"global_addr"
+			],
+			[
+				"glo",
+				"global_addr"
+			],
+			[
+				"REQ",
+				"REQ_ADDR"
+			],
+			[
+				"ar",
+				"addr0"
+			],
+			[
+				"addr",
+				"addr2"
+			],
+			[
+				"adr",
+				"addr0"
+			],
+			[
+				"RO",
+				"ROW0"
+			],
+			[
+				"C",
+				"C_MEM_WIDTH"
+			],
+			[
+				"B",
+				"BRAM0_DOUT"
+			],
+			[
+				"R",
+				"ROW0"
+			],
+			[
+				"c",
+				"can_parse_r"
+			],
+			[
+				"Sha",
+				"ShapeNode"
+			],
+			[
+				"add",
+				"addNode"
+			],
+			[
+				"G",
+				"GraphML"
+			],
+			[
+				"T",
+				"TVALID"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/windows/cutchapter.main.js",
+			"settings":
+			{
+				"buffer_size": 9771,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 339.0,
+		"last_filter": "setting",
+		"selected_items":
+		[
+			[
+				"setting",
+				"Preferences: Settings"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"ssma",
+				"Set Syntax: MATLAB"
+			],
+			[
+				"ssmatl",
+				"Set Syntax: MATLAB"
+			],
+			[
+				"ssc",
+				"Set Syntax: C"
+			],
+			[
+				"ss",
+				"Set Syntax: Python"
+			],
+			[
+				"sspython",
+				"Set Syntax: Python"
+			],
+			[
+				"ssver",
+				"Set Syntax: Verilog"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"ssp",
+				"Set Syntax: Python"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"ssm",
+				"Set Syntax: MATLAB"
+			],
+			[
+				"ssve",
+				"Set Syntax: Verilog"
+			],
+			[
+				"ssap",
+				"Set Syntax: Apache Conf"
+			],
+			[
+				"ssa",
+				"Set Syntax: Apache Conf"
+			],
+			[
+				"apa",
+				"Set Syntax: Apache Conf"
+			],
+			[
+				"sshtml",
+				"Set Syntax: HTML (Angular.js)"
+			],
+			[
+				"ssapa",
+				"Set Syntax: Apache Conf"
+			],
+			[
+				"comm",
+				"Toggle Comment"
+			],
+			[
+				"ssph",
+				"Set Syntax: PHP"
+			],
+			[
+				"sspyth",
+				"Set Syntax: Python"
+			],
+			[
+				"ssvhd",
+				"Set Syntax: VHDL"
+			],
+			[
+				"c",
+				"Set Syntax: C++"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"sftp",
+				"SFTP: Browse Server…"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: inst",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 577.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) ",
+			"ls",
+			"print(sys.__dict__)",
+			"print(sys)",
+			"print(sys.argv[0])",
+			"print(sys.argv)",
+			"import sys",
+			"os.getcwd()",
+			"os.pwd()",
+			"os.cwd()",
+			"import os",
+			"pwd",
+			"python",
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) ",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) ",
+			"sys._sha1(\"coucou\")",
+			"sys._sha1",
+			"sys.__dict__",
+			"import sys",
+			"sys.__dict__",
+			"call(\"ls\")",
+			"exec(\"ls\")",
+			"sys.exec(\"ls\")",
+			"from sys import *",
+			"ls",
+			"pwd()",
+			"pwd"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/ludwigcron/Documents/Projets/cutchapter-app"
+	],
+	"file_history":
+	[
+		"/Users/ludwigcron/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/ludwigcron/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/ludwigcron/Documents/Projets/cutchapter-app/src/css/table.css",
+		"/Users/ludwigcron/Documents/Projets/cutchapter-app/src/windows/cutchapter.main.js",
+		"/Users/ludwigcron/Documents/Projets/cutchapter-app/terminal.glue",
+		"/Volumes/Plot Digitizer 2.6.8/README.txt",
+		"/Users/ludwigcron/Downloads/2016-01-30-images-video-talk_1",
+		"/Users/ludwigcron/OneDrive/Documents/ADC-M/comparator_switches_30-03-2016/switches/sizing/r_switches.py",
+		"/Users/ludwigcron/OneDrive/Documents/ADC-M/switches/sizing/switches_sizing.py",
+		"/Users/ludwigcron/.bash_profile",
+		"/Users/ludwigcron/OneDrive/Documents/ADC-M/switches/validation/validate.py",
+		"/Users/ludwigcron/Downloads/SolidWorks 2015 SP0 x64/Torrent downloaded from demonoid.ph.txt",
+		"/Users/ludwigcron/Documents/workspace/jnrdm/jnrdm.bib",
+		"/Users/ludwigcron/Documents/workspace/jnrdm/JNRDM_2017.tex",
+		"/Users/ludwigcron/Documents/workspace/jnrdm/JNRDM2016.tex",
+		"/Users/ludwigcron/Desktop/adc_test.m",
+		"/Users/ludwigcron/Documents/workspace/jnrdm/jnrdm.tex",
+		"/Volumes/LUDWIG/comparators/carac.py",
+		"/Volumes/LUDWIG/comparators/comparator_eval.py",
+		"/Users/ludwigcron/Desktop/comparator_eval.py",
+		"/Applications/PlayOnMac.app/Contents/Resources/lib/python2.7/locale.py",
+		"/Users/ludwigcron/Desktop/carac.py",
+		"/Users/ludwigcron/Downloads/lives-2.6.0/README",
+		"/Users/ludwigcron/Desktop/mergin.cmd",
+		"/Users/ludwigcron/Desktop/jnrdm/jnrdm.tex",
+		"/Users/ludwigcron/Desktop/pololu_accel.m",
+		"/Users/ludwigcron/Desktop/fsqsf.m",
+		"/Users/ludwigcron/Desktop/adss_vitess/adss_vitesse/fir.h",
+		"/Users/ludwigcron/OneDrive/Documents/3A/Integration Systeme Embarque/keepDirection/keepDirection.ino",
+		"/Users/ludwigcron/Applications/cut_chapter.py",
+		"/Users/ludwigcron/Desktop/matlab.mat",
+		"/Users/ludwigcron/Desktop/adss_vitess/adss_vitesse/Kalman.h",
+		"/Users/ludwigcron/Downloads/zumo-shield-master/README.textile",
+		"/Applications/Arduino.app/Contents/Java/libraries/LSM303/keywords.txt",
+		"/Users/ludwigcron/Desktop/test/test_spice.sp",
+		"/Users/ludwigcron/Desktop/test/inverter.sp",
+		"/Users/ludwigcron/CppSim/SimRuns/Spice/gm_on_Id_test/sim_gm_curves.py",
+		"/Users/ludwigcron/CppSim/SimRuns/Spice/gm_on_Id_test/simrun.raw",
+		"/Users/ludwigcron/Desktop/cant/songs_update.py",
+		"/Users/ludwigcron/Desktop/songs_update.py",
+		"/Users/ludwigcron/Desktop/comparator.csv",
+		"/Users/ludwigcron/OneDrive/Public/ADSS/sending_mail_subscription/sender.py",
+		"/Users/ludwigcron/Desktop/data_sar_test.txt",
+		"/Users/ludwigcron/Desktop/ffrecorder.py",
+		"/Users/ludwigcron/Desktop/database_adss.csv",
+		"/Users/ludwigcron/Desktop/test_mal.txt",
+		"/Users/ludwigcron/Desktop/sender.py",
+		"/Users/ludwigcron/Desktop/smtpd.py",
+		"/Users/ludwigcron/Desktop/suplabel.m",
+		"/Users/ludwigcron/Documents/workspace/JRecorder/src/views/Home.java",
+		"/Users/ludwigcron/Desktop/nel_xt018.csv",
+		"/Users/ludwigcron/Desktop/gmid.py",
+		"/Users/ludwigcron/OneDrive/Public/gtk_recorder.py",
+		"/Users/ludwigcron/Desktop/cadence/ADC/clock_distribution_counting3/a1/vhdl.vhd",
+		"/Users/ludwigcron/Desktop/cadence/ADC/counting_stage/verilogams/verilog.vams",
+		"/Users/ludwigcron/Desktop/ADC_Melexis/02-Modele/dnl_inl.m",
+		"/Users/ludwigcron/OneDrive/Documents/ADC-M/report-january/report-january.tm",
+		"/Users/ludwigcron/OneDrive/Documents/ADC-M/report-january/report-january-v2.tm",
+		"/Users/ludwigcron/Documents/Springer/Computer Science/get_titles.py",
+		"/Users/ludwigcron/Desktop/report-january-v2.tm",
+		"/Users/ludwigcron/Documents/Springer/Computer Science/bok%3A978-3-319-22686-6.pdf",
+		"/Users/ludwigcron/Documents/Springer/Computer Science/bok%3A978-3-642-02886-1.pdf",
+		"/Users/ludwigcron/Documents/Springer/download.sh",
+		"/Users/ludwigcron/Documents/Springer/Math/download.py",
+		"/Users/ludwigcron/Documents/Springer/Math/A Classical Introduction to Modern Number Theory, Kenneth Ireland, Michael Rosen.pdf",
+		"/Users/ludwigcron/Documents/Springer/Math/A Course in Mathematical Logic, Yu. I. Manin.pdf",
+		"/Users/ludwigcron/Documents/Springer/Math/download.sh",
+		"/Users/ludwigcron/Desktop/jnrdm-article/source.bib",
+		"/Users/ludwigcron/Desktop/jnrdm-2016/biblio.bib",
+		"/Users/ludwigcron/Desktop/jnrdm-2016/source.bib",
+		"/Users/ludwigcron/Desktop/report-january/imgs/testbench_global.eps",
+		"/Users/ludwigcron/Desktop/ADC_Melexis/02-Modele/global/ideal_r/gaop_variations/README.txt",
+		"/Users/ludwigcron/Desktop/ADC_Melexis/02-Modele/Matlab_v1h/macromodele.m",
+		"/Users/ludwigcron/Desktop/cadence/ADC/digital_part6/functional/verilog.v",
+		"/Users/ludwigcron/Desktop/cadence/ADC/sar6/verilogams/verilog.vams",
+		"/Users/ludwigcron/Desktop/ADC_Melexis/02-Modele/cyclic_Gaop_variations/README.txt",
+		"/Users/ludwigcron/Desktop/cadence/ADC/digital_part_algo3/functional/verilog.v",
+		"/Users/ludwigcron/Desktop/report-january/biblio.bib",
+		"/Users/ludwigcron/Desktop/ADC_Melexis/02-Modele/posttrait_counting.m",
+		"/Users/ludwigcron/Desktop/ADC_Melexis/02-Modele/counting_Pgb_variations/data1_v3_200M.txt",
+		"/Users/ludwigcron/Desktop/ADC_Melexis/02-Modele/counting_Pgb_variations/README.txt",
+		"/Users/ludwigcron/Desktop/report-january/subtractor_integrator_principle.tex",
+		"/Users/ludwigcron/Desktop/ADC_Melexis/02-Modele/counting_Gaop_variations/README.txt",
+		"/Users/ludwigcron/Desktop/cadence/ADC/switched_comparator/verilogams/verilog.vams",
+		"/Users/ludwigcron/Desktop/ADC_Melexis/02-Modele/counting_Gaop_variations/data1_v3_32.txt",
+		"/Users/ludwigcron/Desktop/cadence/ADC/RS/functional/verilog.v",
+		"/Users/ludwigcron/Desktop/cadence/ADC/diff_aop/schematic_ideal/master.tag",
+		"/Users/ludwigcron/Desktop/cadence/ADC/diff_aop/schematic_ideal2/data.dm",
+		"/Users/ludwigcron/Desktop/cadence/ADC/diff_aop/schematic_ideal2/sch.oa",
+		"/Users/ludwigcron/Desktop/ADC_Melexis/02-Modele/Matlab_v1h/adc_SDInc.m",
+		"/Users/ludwigcron/.bashrc",
+		"/Users/ludwigcron/Vagrantfile",
+		"/Users/ludwigcron/Desktop/adc/02-Modele/Matlab_v1f/macromodele.m",
+		"/Users/ludwigcron/Desktop/adc/02-Modele/Matlab_v1f/adc_sim.m",
+		"/Users/ludwigcron/OneDrive/Public/cut_chapter.py",
+		"/Volumes/LUDWIG/data1.txt",
+		"/Volumes/LUDWIG/ADC_Melexis/02-Modèle/data1.txt",
+		"/Volumes/LUDWIG/ADC_Melexis/02-Modèle/data0.txt",
+		"/Users/ludwigcron/Library/Application Support/Sublime Text 3/Packages/User/sftp_servers/teltoeur",
+		"/Users/ludwigcron/OneDrive/Public/gtk_test.py",
+		"/var/folders/rx/vy3n70t52hq2bh4y45k3pz980000gn/T/sublime-sftp-browse-1449344024/teltoeur/www/pcview2.html",
+		"/var/folders/rx/vy3n70t52hq2bh4y45k3pz980000gn/T/sublime-sftp-browse-1449343998/teltoeur/www/index.php",
+		"/var/folders/rx/vy3n70t52hq2bh4y45k3pz980000gn/T/sublime-sftp-browse-1449342277/teltoeur/Stocks/req.php",
+		"/Users/ludwigcron/Library/Application Support/Sublime Text 3/Packages/User/sftp_servers/be-a-cron.com",
+		"/var/folders/rx/vy3n70t52hq2bh4y45k3pz980000gn/T/sublime-sftp-browse-1449341721/teltoeur/Stocks/index.html",
+		"/var/folders/rx/vy3n70t52hq2bh4y45k3pz980000gn/T/sublime-sftp-browse-1449341757/teltoeur/Stocks/js/default.js",
+		"/Users/ludwigcron/Desktop/teltoeur",
+		"/Users/ludwigcron/Library/Application Support/Sublime Text 3/Packages/User/SFTP.sublime-settings",
+		"/Users/ludwigcron/OneDrive/Public/recorder.py",
+		"/Users/ludwigcron/OneDrive/Public/gtk_monitors.py",
+		"/Users/ludwigcron/Desktop/assistance/js/pointerdnd.js",
+		"/Users/ludwigcron/Desktop/assistance/index.html",
+		"/Users/ludwigcron/Desktop/assistance/css/app.css",
+		"/Users/ludwigcron/Desktop/test.html",
+		"/Users/ludwigcron/Desktop/assistance/js/Plan.js",
+		"/Users/ludwigcron/Desktop/assistance/js/evry.js",
+		"/Users/ludwigcron/Desktop/assistance/js/angularjs.js",
+		"/Users/ludwigcron/Desktop/assistance/Classe.js",
+		"/Users/ludwigcron/Desktop/assistance/html2canvas.html",
+		"/Users/ludwigcron/Desktop/assistance/Plan.js",
+		"/Users/ludwigcron/Desktop/assistance/Promise.js",
+		"/Users/ludwigcron/Desktop/FV/primfreq.m",
+		"/Users/ludwigcron/Documents/Projets/VHDL2Netlist/entity-extractor.py",
+		"/Users/ludwigcron/Desktop/pointerdnd.js",
+		"/Users/ludwigcron/Documents/Projets/VHDL2Netlist/component.py",
+		"/Users/ludwigcron/Desktop/web/db.json",
+		"/Users/ludwigcron/Applications/out.json",
+		"/Users/ludwigcron/Downloads/cirkuit-0.4.3/README"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 106.0,
+		"where_history":
+		[
+			"",
+			"<current file>",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"nmos_pmos",
+			"http://link.springer.com/",
+			"tempauto",
+			",",
+			"/title",
+			"/Subject",
+			"/Title",
+			".pdf",
+			"*.pdf",
+			"resolution",
+			"os",
+			"shlex",
+			"event.clientX",
+			"deleteTag",
+			"innerText",
+			"psutil",
+			"069",
+			"int_REQ_NEXT",
+			"for ac_func in socket",
+			"\\\\%",
+			"\\%",
+			"#net",
+			"annexe",
+			"pg80",
+			"pg080",
+			"\\chapteur",
+			"!h",
+			"int_DONE",
+			"FDEPTH",
+			"parser_addr",
+			"C_DATA_WIDTH",
+			": integer :=",
+			"C_ADDRESS_WIDTH",
+			"DATA",
+			"SIZE",
+			"natural",
+			"0: token,",
+			"groups",
+			"socket.io",
+			"IPB147N03L",
+			"correcteur->",
+			"IPD135N",
+			"(\\ ){4}",
+			"sentence",
+			"));\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			".",
+			"x",
+			"NET",
+			"!ht",
+			"C_MEM_WIDTH",
+			"=> ",
+			"C_ADDR_WIDTH",
+			"ROW",
+			"WIDTH",
+			"integer",
+			"0: __dict__.instruction[token],",
+			"res",
+			"c->",
+			"\\t",
+			"frame"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/windows/cutchapter.main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9771,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										11,
+										12
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/single_quote.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										0,
+										1
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 32.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 141.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 124.0
+	},
+	"pinned_build_system": "Packages/VHDL/VHDL.sublime-build",
+	"project": "cut_chapter.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Movies/Bonnes Nouvelles/cut_chapter.sh"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 248.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
