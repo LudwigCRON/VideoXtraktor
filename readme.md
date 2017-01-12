@@ -1,5 +1,7 @@
-# READ ME
+# Purposes
+This application based on electron is intended to make easier the life with mp4 video files. the two basic functionnalities are to extract part of them based on chapters embedded and to generate subtitles.
 
+# Caution
 Due to agressive power management on the some computers such as on mac, or kali linux, the kernel suspends processes.
 
 to prevent the kernel to suspend the program, the following sections describe procedures for the 3 main OS on the market.
