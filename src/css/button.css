@@ -2,34 +2,72 @@
  * Buttons
  */
 
- button {
-   display: inline-block;
-   padding: 0 1rem;
-   margin: 0.5rem;
-   text-transform: uppercase;
-   background: linear-gradient(#444a4a 0%, #373c3c 50%, #2d3232 100%);
-   border: 1px solid #1c1f1f;
-   border-radius: 3px;
-   font-size: 0.8rem;
-   color: inherit;
-   cursor: pointer;
- }
+button {
+  display: inline-block;
+  padding: 0 1rem;
+  text-transform: uppercase;
+  background: linear-gradient(#444a4a 0%, #373c3c 50%, #2d3232 100%);
+  border: 1px solid #1c1f1f;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  color: inherit;
+  cursor: pointer;
+}
 
- button::focus, button::hover {
-   background: : linear-gradient(#282d2d 0%, #2c3131 100%);
- }
+button:hover {
+  background: linear-gradient(#474747 0%, #545454 50%, #575757 100%);
+}
+
+button:focus, button:active {
+  background: linear-gradient(#282d2d 0%, #2c3131 100%);
+}
 
 /*
  * input file selection
  */
 
-.input-file-trigger {
-  display: table-row;
+.input-file-trigger, .input-file-trigger:focus {
+  display: block;
   padding: 1rem 1rem;
   margin-top: 1px;
   background: #39D2B4;
   color: #fff;
   font-size: 1em;
   cursor: pointer;
-  width: calc(100% - 1.6rem);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
 }
+
+.input-file-trigger::after {
+  display: block;
+  content: ' ';
+  width: 4rem;
+  height: 200%;
+  position: absolute;
+  left: auto;
+  right: -3rem;
+  top: -50%;
+  transform: rotate(-30deg);
+  transform-origin: 0% 100%;
+  background: rgba(255, 255, 255, 0.5);
+  transition: all 0.15s ease-in-out;
+}
+
+.input-file-trigger:hover {
+  background: #39D2B4;
+}
+
+.input-file-trigger:hover::after {
+  right: -4rem;
+}
+
+.input-file-trigger:active {
+  background: #32B89E;
+}
+
+.input-file-trigger:active::after {
+  right: -10rem;
+}
+

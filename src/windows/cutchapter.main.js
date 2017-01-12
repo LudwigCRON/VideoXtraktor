@@ -3,6 +3,7 @@ var dialogs = require('dialogs')
 var electron = require('electron').remote
 var button = document.querySelectorAll('.panel--config > button')
 var mapLimit = require('async').mapLimit
+var mask = require('./js/mask.js')
 
 var treeView = null
 /*
@@ -55,6 +56,7 @@ var CutChapter = (function (app) {
       '<span class="chapter__title">Title</span>' +
       '<span class="chapter__start">Start</span>' +
       '<span class="chapter__end">End</span>' +
+      '<span class="chapter__duration">Duration</span>' +
       '</li>'
       // select the movie file
       electron.dialog.showOpenDialog(electron.getCurrentWindow(), {
@@ -110,19 +112,26 @@ function createItem (chapter) {
   spanElt.textContent = chapter.title
   spanElt.contentEditable = true
   itemElt.appendChild(spanElt)
-  spanElt = document.createElement('span')
+  spanElt = document.createElement('input')
+  spanElt.type = 'text'
   spanElt.className = 'chapter__start'
-  spanElt.textContent = app.toFormattedTime(chapter.start, chapter.framerate)
-  spanElt.contentEditable = true
+  spanElt.value = app.toFormattedTime(chapter.start)
+  VMasker(spanElt).maskPattern('99:99:99.999')
+  //spanElt.contentEditable = true
+  spanElt.addEventListener('input', updateDuration, false)
   itemElt.appendChild(spanElt)
-  spanElt = document.createElement('span')
+  spanElt = document.createElement('input')
+  spanElt.type = 'text'
   spanElt.className = 'chapter__end'
-  spanElt.textContent = app.toFormattedTime(chapter.end, chapter.framerate)
-  spanElt.contentEditable = true
+  spanElt.value = app.toFormattedTime(chapter.end)
+  VMasker(spanElt).maskPattern('99:99:99.999')
+  //spanElt.contentEditable = true
+  spanElt.addEventListener('input', updateDuration, false)
   itemElt.appendChild(spanElt)
   spanElt = document.createElement('span')
-  spanElt.className = 'chapter__framerate'
-  spanElt.textContent = 1 / chapter.framerate
+  spanElt.className = 'chapter__duration'
+  spanElt.textContent = app.toFormattedTime(chapter.end - chapter.start)
+  spanElt.contentEditable = false
   itemElt.appendChild(spanElt)
   spanElt = document.createElement('span')
   spanElt.className = 'chapter__origin'
@@ -139,6 +148,16 @@ function createGroup (label) {
   spanElt.contentEditable = true
   groupElt.appendChild(spanElt)
   return groupElt
+}
+
+function updateDuration (event, args) {
+  let chapter = event.target.parentNode
+  console.log(event, args)
+  // get entered value
+  let start = app.toSeconds(chapter.querySelector('.chapter__start').value)
+  let end = app.toSeconds(chapter.querySelector('.chapter__end').value)
+  // update the duration
+  chapter.querySelector('.chapter__duration').textContent = app.toFormattedTime(end - start)
 }
 
 button[0].addEventListener('click', CutChapter.getInfo, false)
@@ -238,4 +257,45 @@ document.querySelector('#exec-btn').addEventListener('click', (e) => {
     if (err !== null) process.stdout.write(err.toString())
     process.stdout.write(results.toString())
   })
+}, false)
+
+/*
+ * handle split view
+ */
+var handle = document.querySelector('.handle')
+var panel_config = document.querySelector('.panel--config')
+var handle_drag = false
+var handle_pos = {'x': 0, 'y': 0, 'dir': 'h'} // 'h' allow horizontal movement, 'v' vertical one
+var cursor = document.querySelector('.cursor')
+handle.addEventListener('mousedown', (e) => {
+  handle_drag = true
+  handle_pos.x = e.clientX - parseInt(handle.getClientRects()[0].left, 10)
+  handle_pos.y = e.clientY - parseInt(handle.getClientRects()[0].top, 10)
+  if (handle_pos.dir === 'h') {
+      panel_config.style.width = parseInt(handle.getClientRects()[0].left, 10)+ 'px'
+    } else if (handle_pos.dir === 'v') {
+      panel_config.style.height = parseInt(handle.getClientRects()[0].top, 10) + 'px'
+    }
+    console.log(e.clientX, e.pageX)
+}, false)
+
+document.addEventListener('mouseup', (e) => {
+  handle_drag = false
+}, false)
+
+document.addEventListener('mousemove', (e) => {
+  if (handle_drag) {
+    console.log(e.clientX, e.pageX)
+    if (handle_pos.dir === 'h') {
+      panel_config.style.width = (e.clientX - handle_pos.x*0) + 'px'
+    } else if (handle_pos.dir === 'v') {
+      panel_config.style.height = (e.clientY - handle_pos.y*0) + 'px'
+    }
+  }
+  cursor.style.top = e.clientY - 20 + 'px'
+  cursor.style.left = e.clientX - 20 + 'px'
+  handle.style.position = 'fixed'
+  handle.style.left = e.clientX + 20 + 'px'
+  panel_config.style.width = e.clientX + 'px'
+
 }, false)

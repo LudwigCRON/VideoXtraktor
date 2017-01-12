@@ -5,7 +5,6 @@
 .split {
   display: flex;
   height: 100%;
-  border: 1px solid black;
 }
 
 .split > :nth-child(1) {
@@ -22,28 +21,50 @@
   flex-direction: column;
 }
 
-.split.vertical > :nth-child(1) {
-  resize: vertical;
-}
-
 /* Horizontal */
 
 .split.horizontal {
   flex-direction: row;
 }
 
-.split.horizontal > :nth-child(1) {
-  resize: horizontal;
-}
-
 .panel--config {
   display: inline-flex;
-  min-width: 12rem;
+  min-width: 16rem;
   flex-direction: column;
+  -webkit-user-select: none;
+  overflow-y: scroll;
+  padding: 0.25rem 1rem;
+  position: relative;
 }
 
 .panel--main {
   display: inline-flex;
-  min-width: 30rem;
   flex-direction: column;
+  -webkit-user-select: none;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 0;
+}
+
+.split.horizontal .handle {
+  display: inline-block;
+  background: #777;
+  width: 10px;
+  height: 100%;
+  flex-grow: 0;
+  cursor: col-resize;
+  position: absolute;
+  left: calc(100% - 10px);
+  bottom: 0;
+}
+
+.split.vertical .handle {
+  display: inline-block;
+  background: #777;
+  height: 10px;
+  width: 100%;
+  cursor: row-resize;
+  position: absolute;
+  left: 0;
+  top: 0;
 }

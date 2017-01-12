@@ -12,7 +12,8 @@
   border-bottom: 1px solid #1c1f1f;
   -webkit-user-select: none;
   -webkit-app-region: drag;
-  overflow: hidden;
+  overflow-x: scroll;
+  overflow-x: hidden;
   z-index: 9999;
 }
 

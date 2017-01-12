@@ -4,6 +4,90 @@
 		"selected_items":
 		[
 			[
+				"box",
+				"box-shadow"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"flex",
+				"flex-grow"
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"table",
+				"table-row"
+			],
+			[
+				"set",
+				"setCaretPosition"
+			],
+			[
+				"get",
+				"getCaretPosition"
+			],
+			[
+				"chapter",
+				"chapter__end"
+			],
+			[
+				"prot",
+				"prototype"
+			],
+			[
+				"span",
+				"spanElt"
+			],
+			[
+				"to",
+				"toSecond"
+			],
+			[
+				"text",
+				"textContent"
+			],
+			[
+				"data",
+				"data-value"
+			],
+			[
+				"clas",
+				"classList"
+			],
+			[
+				"form",
+				"formattedTime"
+			],
+			[
+				"up",
+				"updateDuration"
+			],
+			[
+				"da",
+				"data-value"
+			],
+			[
+				"tex",
+				"textContent"
+			],
+			[
+				"overfl",
+				"overflow"
+			],
+			[
+				"padding",
+				"padding-top"
+			],
+			[
+				"overflo",
+				"overflow-x"
+			],
+			[
 				"class",
 				"classList"
 			],
@@ -30,10 +114,6 @@
 			[
 				"inpu",
 				"input_offset"
-			],
-			[
-				"get",
-				"get_args"
 			],
 			[
 				"temp",
@@ -66,10 +146,6 @@
 			[
 				"line",
 				"lines_f"
-			],
-			[
-				"data",
-				"data_bin"
 			],
 			[
 				"if",
@@ -154,10 +230,6 @@
 			[
 				"bin",
 				"binaryFile"
-			],
-			[
-				"text",
-				"text_dim"
 			],
 			[
 				"font",
@@ -442,88 +514,17 @@
 			[
 				"nxt",
 				"nxt_2_wr"
-			],
-			[
-				"C_",
-				"C_MEM_WIDTH"
-			],
-			[
-				"par",
-				"parser_next"
-			],
-			[
-				"parser",
-				"parser_jump"
-			],
-			[
-				"glob",
-				"global_addr"
-			],
-			[
-				"glo",
-				"global_addr"
-			],
-			[
-				"REQ",
-				"REQ_ADDR"
-			],
-			[
-				"ar",
-				"addr0"
-			],
-			[
-				"addr",
-				"addr2"
-			],
-			[
-				"adr",
-				"addr0"
-			],
-			[
-				"RO",
-				"ROW0"
-			],
-			[
-				"C",
-				"C_MEM_WIDTH"
-			],
-			[
-				"B",
-				"BRAM0_DOUT"
-			],
-			[
-				"R",
-				"ROW0"
-			],
-			[
-				"c",
-				"can_parse_r"
-			],
-			[
-				"Sha",
-				"ShapeNode"
-			],
-			[
-				"add",
-				"addNode"
-			],
-			[
-				"G",
-				"GraphML"
-			],
-			[
-				"T",
-				"TVALID"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "src/windows/cutchapter.main.js",
+			"file": "src/css/button.css",
 			"settings":
 			{
-				"buffer_size": 9771,
+				"buffer_size": 765,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -551,17 +552,29 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 339.0,
-		"last_filter": "setting",
+		"height": 370.0,
+		"last_filter": "ins",
 		"selected_items":
 		[
 			[
-				"setting",
-				"Preferences: Settings"
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
 			],
 			[
 				"inst",
 				"Package Control: Install Package"
+			],
+			[
+				"setting",
+				"Preferences: Settings"
 			],
 			[
 				"ssma",
@@ -594,10 +607,6 @@
 			[
 				"ssp",
 				"Set Syntax: Python"
-			],
-			[
-				"ins",
-				"Package Control: Install Package"
 			],
 			[
 				"ssm",
@@ -668,7 +677,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 577.0
+		"width": 568.0
 	},
 	"console":
 	{
@@ -715,15 +724,34 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/ludwigcron/Documents/Projets/cutchapter-app"
+		"/Users/ludwigcron/Documents/Projets/cutchapter-app",
+		"/Users/ludwigcron/Documents/Projets/cutchapter-app/node_modules/dialogs",
+		"/Users/ludwigcron/Documents/Projets/cutchapter-app/src",
+		"/Users/ludwigcron/Documents/Projets/cutchapter-app/src/css",
+		"/Users/ludwigcron/Documents/Projets/cutchapter-app/src/js",
+		"/Users/ludwigcron/Documents/Projets/cutchapter-app/src/windows"
 	],
 	"file_history":
 	[
+		"/Users/ludwigcron/Documents/Projets/cutchapter-app/src/css/table.css",
+		"/Users/ludwigcron/Documents/Projets/cutchapter-app/src/css/panel.css",
+		"/Users/ludwigcron/Documents/Projets/cutchapter-app/src/windows/cutchapter.main.html",
+		"/Users/ludwigcron/Documents/Projets/cutchapter-app/src/css/forms.css",
+		"/Users/ludwigcron/Documents/Projets/cutchapter-app/src/css/button.css",
+		"/Users/ludwigcron/Documents/Projets/cutchapter-app/src/css/styles.css",
+		"/Users/ludwigcron/Documents/Projets/cutchapter-app/src/windows/cutchapter.main.js",
+		"/Users/ludwigcron/Documents/Projets/cutchapter-app/src/js/script.js",
+		"/Users/ludwigcron/Documents/Projets/cutchapter-app/src/index.html",
+		"/Users/ludwigcron/Documents/Projets/cutchapter-app/src/css/reset.css",
+		"/Users/ludwigcron/Documents/Projets/cutchapter-app/src/js/mask.js",
+		"/Users/ludwigcron/Documents/Projets/cutchapter-app/terminal.glue",
+		"/Users/ludwigcron/Documents/Projets/cutchapter-app/src/windows/subtitle.main.html",
+		"/Users/ludwigcron/Documents/Projets/cutchapter-app/src/windows/dashboard.main.html",
+		"/Users/ludwigcron/Documents/Projets/cutchapter-app/src/css/titlebar.css",
+		"/Users/ludwigcron/Documents/Projets/cutchapter-app/src/index.js",
+		"/Users/ludwigcron/Downloads/pycontrol/README",
 		"/Users/ludwigcron/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/Users/ludwigcron/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
-		"/Users/ludwigcron/Documents/Projets/cutchapter-app/src/css/table.css",
-		"/Users/ludwigcron/Documents/Projets/cutchapter-app/src/windows/cutchapter.main.js",
-		"/Users/ludwigcron/Documents/Projets/cutchapter-app/terminal.glue",
 		"/Volumes/Plot Digitizer 2.6.8/README.txt",
 		"/Users/ludwigcron/Downloads/2016-01-30-images-video-talk_1",
 		"/Users/ludwigcron/OneDrive/Documents/ADC-M/comparator_switches_30-03-2016/switches/sizing/r_switches.py",
@@ -832,25 +860,11 @@
 		"/Users/ludwigcron/Desktop/assistance/js/pointerdnd.js",
 		"/Users/ludwigcron/Desktop/assistance/index.html",
 		"/Users/ludwigcron/Desktop/assistance/css/app.css",
-		"/Users/ludwigcron/Desktop/test.html",
-		"/Users/ludwigcron/Desktop/assistance/js/Plan.js",
-		"/Users/ludwigcron/Desktop/assistance/js/evry.js",
-		"/Users/ludwigcron/Desktop/assistance/js/angularjs.js",
-		"/Users/ludwigcron/Desktop/assistance/Classe.js",
-		"/Users/ludwigcron/Desktop/assistance/html2canvas.html",
-		"/Users/ludwigcron/Desktop/assistance/Plan.js",
-		"/Users/ludwigcron/Desktop/assistance/Promise.js",
-		"/Users/ludwigcron/Desktop/FV/primfreq.m",
-		"/Users/ludwigcron/Documents/Projets/VHDL2Netlist/entity-extractor.py",
-		"/Users/ludwigcron/Desktop/pointerdnd.js",
-		"/Users/ludwigcron/Documents/Projets/VHDL2Netlist/component.py",
-		"/Users/ludwigcron/Desktop/web/db.json",
-		"/Users/ludwigcron/Applications/out.json",
-		"/Users/ludwigcron/Downloads/cirkuit-0.4.3/README"
+		"/Users/ludwigcron/Desktop/test.html"
 	],
 	"find":
 	{
-		"height": 28.0
+		"height": 42.0
 	},
 	"find_in_files":
 	{
@@ -867,6 +881,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			".mp4",
+			"./",
 			"nmos_pmos",
 			"http://link.springer.com/",
 			"tempauto",
@@ -919,6 +935,7 @@
 		"regex": true,
 		"replace_history":
 		[
+			"",
 			".",
 			"x",
 			"NET",
@@ -949,19 +966,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "src/windows/cutchapter.main.js",
+					"file": "src/css/button.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9771,
+						"buffer_size": 765,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								666,
+								666
 							]
 						],
 						"settings":
@@ -973,15 +990,15 @@
 								{
 									"1":
 									[
-										11,
-										12
+										668,
+										669
 									]
 								},
 								"icon":
 								{
 									"1":
 									[
-										"Packages/BracketHighlighter/icons/single_quote.png",
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
 										"brackethighlighter.default"
 									]
 								},
@@ -989,8 +1006,8 @@
 								{
 									"1":
 									[
-										0,
-										1
+										513,
+										514
 									]
 								},
 								"unmatched":
@@ -999,71 +1016,72 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
-								"bh_unmatched_content"
+								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
 							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/TwoDark.tmTheme",
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 429.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1119,7 +1137,7 @@
 	"project": "cut_chapter.sublime-project",
 	"replace":
 	{
-		"height": 52.0
+		"height": 76.0
 	},
 	"save_all_on_build": true,
 	"select_file":

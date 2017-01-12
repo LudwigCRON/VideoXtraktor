@@ -1,0 +1,22 @@
+/*
+ * Forms
+ */
+
+.panel--config input {
+	display: block;
+	background: rgba(255, 255, 255, 0.1);
+	padding: 0.5em 0.25em;
+	border: none;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+	border-radius: 3px;
+	transition: border 0.15s 0.2s ease-in-out, background 0.35s ease-in-out;
+}
+
+.panel--config input:focus, input:active {
+	background: rgba(255, 255, 255, 0.5);
+	border-bottom: 3px solid #39D2B4;
+}
+
+.panel--config label {
+	margin-top: 1rem;
+}

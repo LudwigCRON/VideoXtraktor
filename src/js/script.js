@@ -46,10 +46,10 @@ var router = (function (fs, path) {
         if (err) throw err
         target.innerHTML = data
         // rebind the close button
-        document.querySelector('.close-btn').addEventListener('click', (e) => {
+        /* document.querySelector('.close-btn').addEventListener('click', (e) => {
           var window = remote.getCurrentWindow()
           window.close()
-        })
+        }) */
         // then load the appropriate code
         fs.readFile(path.join(__dirname, 'windows/', view + '.js'), (err, data) => {
           if (err) throw err
@@ -109,6 +109,13 @@ var app = (function (spawn, path) {
     },
     'toFormattedTime': (seconds) => {
       return __toFormattedTime(seconds)
+    },
+    'toSeconds': (formattedTime) => {
+      let arr = formattedTime.split(':')
+      let ans = parseInt(arr[0], 10) * 3600 +
+                parseInt(arr[1], 10) * 60 +
+                parseFloat(arr[2])
+      return ans
     },
     'getMetaData': (filePath, callback, code, error) => {
       if (outputFolder === '') {

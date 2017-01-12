@@ -8,30 +8,27 @@
 }
 
 .table__header {
-  display: block;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.2);
+  display: table-row;
+  width: calc(100% - 16rem);
+  background: #3e4444;
   border-bottom: 1px solid #1c1f1f;
+  position: absolute;
+  top: 0;
 }
 
 .table__header > * {
-  display: inline-block;
   border-right: 1px solid #fff;
-  width: 29%;
 }
 
 .table__header > *:last-child {
   border: none;
 }
 
-.table__header > .chapter__title {
-  width: 40%;
-}
-
 .chapter {
   display: table-row;
   width: 100%;
   border-bottom: 1px solid #444a4a;
+  vertical-align: top;
 }
 
 .chapter:nth-child(2n+1) {
@@ -42,22 +39,34 @@
   background: rgba(255, 255, 255, 0.3)
 }
 
+.chapter > * {
+  line-height: 100%;
+  vertical-align: top;
+}
+
 .table .chapter.selected {
   background: rgba(200, 200, 255, 0.3);
 }
 
-
-.chapter > .chapter__title {
-  display: table-cell;
-  width: 40%;
+.chapter__title {
+  display: inline-block;
+  min-width: 8em;
+  max-width: 32em;
+  width: 25%;
+  text-overflow: ellipsis;
+  padding: 0 0.5rem;
 }
 
-.chapter > .chapter__start, .chapter > .chapter__end {
-  display: table-cell;
-  width: 30%;
+.chapter__start, .chapter__end, .chapter__duration {
+  display: inline-block;
+  min-width: 7.09em;
+  width: 25%;
+  background: transparent;
+  color: #fff;
+  padding: 0 0.5em;
 }
 
-.chapter > .chapter__origin, .chapter > .chapter__framerate {
+.chapter__origin, .chapter__framerate {
   display: none !important;
 }
 
@@ -66,8 +75,10 @@
 }
 
 .children, .tree {
-  width: 100%;
   display: table;
+  width: 100%;
+  margin-top: 1.2em;
+  overflow: visible;
 }
 
 .children .chapter__title {
