@@ -30,7 +30,6 @@ var CutChapter = (function (app) {
           chapter.end = parseFloat(match[2]) - 1 // new file always has 1 second extra due to animation
           chapter.title = match[3]
           chapter.origin = path
-          console.log(chapter)
           chapters.push(chapter)
           match = regChapter.exec(results)
         }
@@ -104,62 +103,6 @@ var CutChapter = (function (app) {
 /*
  * event trigger for a stylish input file form
  */
-function createItem (chapter) {
-  var itemElt = document.createElement('li')
-  itemElt.className = 'chapter'
-  var spanElt = document.createElement('span')
-  spanElt.className = 'chapter__title'
-  spanElt.textContent = chapter.title
-  spanElt.contentEditable = true
-  itemElt.appendChild(spanElt)
-  spanElt = document.createElement('input')
-  spanElt.type = 'text'
-  spanElt.className = 'chapter__start'
-  spanElt.value = app.toFormattedTime(chapter.start)
-  VMasker(spanElt).maskPattern('99:99:99.999')
-  //spanElt.contentEditable = true
-  spanElt.addEventListener('input', updateDuration, false)
-  itemElt.appendChild(spanElt)
-  spanElt = document.createElement('input')
-  spanElt.type = 'text'
-  spanElt.className = 'chapter__end'
-  spanElt.value = app.toFormattedTime(chapter.end)
-  VMasker(spanElt).maskPattern('99:99:99.999')
-  //spanElt.contentEditable = true
-  spanElt.addEventListener('input', updateDuration, false)
-  itemElt.appendChild(spanElt)
-  spanElt = document.createElement('span')
-  spanElt.className = 'chapter__duration'
-  spanElt.textContent = app.toFormattedTime(chapter.end - chapter.start)
-  spanElt.contentEditable = false
-  itemElt.appendChild(spanElt)
-  spanElt = document.createElement('span')
-  spanElt.className = 'chapter__origin'
-  spanElt.textContent = chapter.origin
-  itemElt.appendChild(spanElt)
-  return itemElt
-}
-
-function createGroup (label) {
-  var groupElt = document.createElement('li')
-  var spanElt = document.createElement('span')
-  spanElt.className = 'group__title'
-  spanElt.textContent = label
-  spanElt.contentEditable = true
-  groupElt.appendChild(spanElt)
-  return groupElt
-}
-
-function updateDuration (event, args) {
-  let chapter = event.target.parentNode
-  console.log(event, args)
-  // get entered value
-  let start = app.toSeconds(chapter.querySelector('.chapter__start').value)
-  let end = app.toSeconds(chapter.querySelector('.chapter__end').value)
-  // update the duration
-  chapter.querySelector('.chapter__duration').textContent = app.toFormattedTime(end - start)
-}
-
 button[0].addEventListener('click', CutChapter.getInfo, false)
 button[1].addEventListener('click', CutChapter.setOutputFolder, false)
 
@@ -252,7 +195,6 @@ document.querySelector('#exec-btn').addEventListener('click', (e) => {
     }
     groups.push(g)
   }
-  console.log(groups)
   mapLimit(groups, pNb, app.concatenate, (err, results) => {
     if (err !== null) process.stdout.write(err.toString())
     process.stdout.write(results.toString())
@@ -276,7 +218,6 @@ handle.addEventListener('mousedown', (e) => {
     } else if (handle_pos.dir === 'v') {
       panel_config.style.height = parseInt(handle.getClientRects()[0].top, 10) + 'px'
     }
-    console.log(e.clientX, e.pageX)
 }, false)
 
 document.addEventListener('mouseup', (e) => {
@@ -285,17 +226,11 @@ document.addEventListener('mouseup', (e) => {
 
 document.addEventListener('mousemove', (e) => {
   if (handle_drag) {
-    console.log(e.clientX, e.pageX)
     if (handle_pos.dir === 'h') {
-      panel_config.style.width = (e.clientX - handle_pos.x*0) + 'px'
+      panel_config.style.width = e.clientX + 'px'
     } else if (handle_pos.dir === 'v') {
-      panel_config.style.height = (e.clientY - handle_pos.y*0) + 'px'
+      panel_config.style.height = e.clientY + 'px'
     }
   }
-  cursor.style.top = e.clientY - 20 + 'px'
-  cursor.style.left = e.clientX - 20 + 'px'
-  handle.style.position = 'fixed'
-  handle.style.left = e.clientX + 20 + 'px'
-  panel_config.style.width = e.clientX + 'px'
 
 }, false)

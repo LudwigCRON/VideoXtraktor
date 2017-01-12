@@ -12,6 +12,7 @@ button {
   font-size: 0.8rem;
   color: inherit;
   cursor: pointer;
+  max-width: 15rem;
 }
 
 button:hover {

@@ -55,7 +55,7 @@
   cursor: col-resize;
   position: absolute;
   left: calc(100% - 10px);
-  bottom: 0;
+  top: 0;
 }
 
 .split.vertical .handle {
@@ -66,5 +66,5 @@
   cursor: row-resize;
   position: absolute;
   left: 0;
-  top: 0;
+  top: calc(100% - 10px);
 }

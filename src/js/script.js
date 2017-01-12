@@ -239,6 +239,63 @@ var app = (function (spawn, path) {
   }
 })(spawn, path)
 
+function createItem (chapter, callback) {
+  var itemElt = document.createElement('li')
+  itemElt.className = 'chapter'
+  var spanElt = document.createElement('span')
+  spanElt.className = 'chapter__title'
+  spanElt.textContent = chapter.title
+  spanElt.contentEditable = true
+  itemElt.appendChild(spanElt)
+  spanElt = document.createElement('input')
+  spanElt.type = 'text'
+  spanElt.className = 'chapter__start'
+  spanElt.value = app.toFormattedTime(chapter.start)
+  VMasker(spanElt).maskPattern('99:99:99.999')
+  //spanElt.contentEditable = true
+  spanElt.addEventListener('keydown', callback, false)
+  spanElt.addEventListener('input', updateDuration, false)
+  itemElt.appendChild(spanElt)
+  spanElt = document.createElement('input')
+  spanElt.type = 'text'
+  spanElt.className = 'chapter__end'
+  spanElt.value = app.toFormattedTime(chapter.end)
+  VMasker(spanElt).maskPattern('99:99:99.999')
+  //spanElt.contentEditable = true
+  spanElt.addEventListener('keydown', callback, false)
+  spanElt.addEventListener('input', updateDuration, false)
+  itemElt.appendChild(spanElt)
+  spanElt = document.createElement('span')
+  spanElt.className = 'chapter__duration'
+  spanElt.textContent = app.toFormattedTime(chapter.end - chapter.start)
+  spanElt.contentEditable = false
+  itemElt.appendChild(spanElt)
+  spanElt = document.createElement('span')
+  spanElt.className = 'chapter__origin'
+  spanElt.textContent = chapter.origin
+  itemElt.appendChild(spanElt)
+  return itemElt
+}
+
+function createGroup (label) {
+  var groupElt = document.createElement('li')
+  var spanElt = document.createElement('span')
+  spanElt.className = 'group__title'
+  spanElt.textContent = label
+  spanElt.contentEditable = true
+  groupElt.appendChild(spanElt)
+  return groupElt
+}
+
+function updateDuration (event, args) {
+  let chapter = event.target.parentNode
+  // get entered value
+  let start = app.toSeconds(chapter.querySelector('.chapter__start').value)
+  let end = app.toSeconds(chapter.querySelector('.chapter__end').value)
+  // update the duration
+  chapter.querySelector('.chapter__duration').textContent = app.toFormattedTime(end - start)
+}
+
   // initialization
 document.onreadystatechange = () => {
   if (document.readyState === 'complete') {

@@ -24,15 +24,18 @@
     </button>
   </div>
   <div class="panel--main">
-    <!-- video player of the file -->
-    <div class="container_16_9">
-      <video class="preview-player" controls>
-        <source type="video/mp4"></source>
-        <!-- https://fr.wikipedia.org/wiki/WebVTT -->
-        <track label="english" kind="subtitles" srclang="en" src="tmp.vtt" default></track>
-      </video>
+    <div class="split vertical">
+      <!-- video player of the file -->
+      <div class="container_16_9" style="height: 56.25%;">
+        <video class="preview-player" controls>
+          <source type="video/mp4"></source>
+          <!-- https://fr.wikipedia.org/wiki/WebVTT
+          <track label="english" kind="subtitles" srclang="en" src="tmp.vtt" default></track> -->
+        </video>
+        <div class="handle"></div>
+      </div>
+      <!-- table with metadata and selection for export -->
+      <div class="table"></div>
     </div>
-    <!-- table with metadata and selection for export -->
-    <div class="table"></div>
   </div>
 </div>
