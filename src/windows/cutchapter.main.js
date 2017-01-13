@@ -207,8 +207,9 @@ document.querySelector('#exec-btn').addEventListener('click', (e) => {
 var handle = document.querySelector('.handle')
 var panel_config = document.querySelector('.panel--config')
 var handle_drag = false
-var handle_pos = {'x': 0, 'y': 0, 'dir': 'h'} // 'h' allow horizontal movement, 'v' vertical one
+var handle_pos = {'x': 0, 'y': 0}
 var cursor = document.querySelector('.cursor')
+
 handle.addEventListener('mousedown', (e) => {
   handle_drag = true
   handle_pos.x = e.clientX - parseInt(handle.getClientRects()[0].left, 10)
@@ -226,11 +227,6 @@ document.addEventListener('mouseup', (e) => {
 
 document.addEventListener('mousemove', (e) => {
   if (handle_drag) {
-    if (handle_pos.dir === 'h') {
-      panel_config.style.width = e.clientX + 'px'
-    } else if (handle_pos.dir === 'v') {
-      panel_config.style.height = e.clientY + 'px'
-    }
+    panel_config.style.width = e.clientX + 'px'
   }
-
 }, false)

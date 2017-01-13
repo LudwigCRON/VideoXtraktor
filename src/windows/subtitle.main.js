@@ -1,6 +1,7 @@
 var electron = require('electron').remote
 var button = document.querySelectorAll('.panel--config > button')
 var player = document.querySelector('.preview-player')
+var main = document.querySelector('.panel--main')
 var table = document.querySelector('.panel--main .table')
 
 var treeView = null
@@ -47,7 +48,7 @@ button[0].addEventListener('click', (e) => {
   '<span class="chapter__start">Start</span>' +
   '<span class="chapter__end">End</span>' +
   '<span class="chapter__duration">Duration</span>' +
-  '</li>'
+  '</li>' 
   // select the movie file
   SubTitler.selectTheMovie()
   treeView = new TreeView(table, {
@@ -86,17 +87,14 @@ document.addEventListener('keypress', (e) => {
 var handle = document.querySelector('.handle')
 var container = document.querySelector('.container_16_9')
 var handle_drag = false
-var handle_pos = {'x': 0, 'y': 0, 'dir': 'v'} // 'h' allow horizontal movement, 'v' vertical one
+var handle_pos = {'x': 0, 'y': 0}
 var cursor = document.querySelector('.cursor')
+
 handle.addEventListener('mousedown', (e) => {
   handle_drag = true
   handle_pos.x = e.clientX - parseInt(handle.getClientRects()[0].left, 10)
   handle_pos.y = e.clientY - parseInt(handle.getClientRects()[0].top, 10)
-  if (handle_pos.dir === 'h') {
-      container.style.width = parseInt(container.getClientRects()[0].left, 10)+ 'px'
-    } else if (handle_pos.dir === 'v') {
-      container.style.height = parseInt(container.getClientRects()[0].top, 10) + 'px'
-    }
+  container.style.height = parseInt(container.getClientRects()[0].top, 10) + 'px'
 }, false)
 
 document.addEventListener('mouseup', (e) => {
@@ -105,12 +103,8 @@ document.addEventListener('mouseup', (e) => {
 
 document.addEventListener('mousemove', (e) => {
   if (handle_drag) {
-    if (handle_pos.dir === 'h') {
-      container.style.width = e.clientX - handle_pos.x + 'px'
-      player.style.width = container.style.width
-    } else if (handle_pos.dir === 'v') {
-      container.style.height = e.clientY - handle_pos.y + 'px'
-      player.style.height = container.style.height
-    }
+    container.style.height = e.clientY - handle_pos.y + 'px'
+    player.style.height = e.clientY - handle_pos.y - 10 + 'px'
+    table.style.height = main.getClientRects()[0].height - container.getClientRects()[0].height + 'px'
   }
 }, false)
