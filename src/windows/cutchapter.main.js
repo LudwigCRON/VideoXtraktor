@@ -47,7 +47,7 @@ var CutChapter = (function (app) {
       chapters = []
       if (typeof chapters0 !== 'undefined') chapters = chapters0
     },
-    'getInfo': (e) => {
+    'getInfo': () => {
       process.stdout.write('extract information ...')
       // add the default header to the table
       document.querySelector('.panel--main > .table').innerHTML = '<!-- header -->' +
@@ -89,7 +89,7 @@ var CutChapter = (function (app) {
         })
       })
     },
-    'setOutputFolder': (fp) => {
+    'setOutputFolder': () => {
       electron.dialog.showOpenDialog(electron.getCurrentWindow(), {
         title: 'Output direcotry',
         properties: ['openDirectory', 'createDirectory']

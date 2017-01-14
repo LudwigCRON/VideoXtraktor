@@ -12,6 +12,7 @@ var tmpChapter = {'text':'', 'start':0, 'end':0}
 
 var SubTitler = (function() {
   var subtitles = []
+  var _outputPath = "tmp.vtt"
 
   return {
     'selectTheMovie': () => {
@@ -32,6 +33,18 @@ var SubTitler = (function() {
         'text': text,
         'start': start,
         'end': end
+      })
+    },
+    'setOutputFile': () => {
+      electron.dialog.showSaveDialog(electron.getCurrentWindow(), {
+        title: 'source movie',
+        filters: [
+          {name: 'Subtitle Track', extensions: ['srt', 'vtt']},
+          {name: 'All Files', extensions: ['*']}
+        ],
+        properties: ['openFile']
+      }, (filePath) => {
+        if (filePath.length > 0) _outputPath = filePath[0]
       })
     }
   }
@@ -63,8 +76,28 @@ button[0].addEventListener('click', (e) => {
   })
 }, false)
 
+button[1].addEventListener('click', (e) => {
+  SubTitler.setOutputFile()
+}, false)
+
+document.querySelector('#export-btn').addEventListener('click', (e) => {
+  
+})
+
+document.querySelector('#reload-btn').addEventListener('click', (e) => {
+
+})
+
+document.querySelector('#add-btn').addEventListener('click', (e) => {
+
+})
+
+document.querySelector('#remove-btn').addEventListener('click', (e) => {
+
+})
+
 document.addEventListener('keypress', (e) => {
-  if (e.keyCode === shortCut.SPACEBAR) {
+  if (e.keyCode === shortCut.SPACEBAR && document.activeElement.className.indexOf('chapter') < 0) {
     newSubtitle = !newSubtitle
     if (newSubtitle) {
       tmpChapter.start = player.currentTime
