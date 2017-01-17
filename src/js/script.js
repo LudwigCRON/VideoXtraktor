@@ -21,7 +21,7 @@ fs.mkdirp = (dirname) => {
   })
 }
 // For Debug purpose set WINE to true else for production WINE = false
-const WINE = true
+const WINE = false
 
 // define the PATH to ffmpeg
 var FFMPEGPATH = 'ffmpeg' // by default assume in the path
