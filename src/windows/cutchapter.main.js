@@ -167,8 +167,8 @@ document.querySelector('#exec-btn').addEventListener('click', (e) => {
   for (let i = 0; i < chapters.length; i++) {
     tasks.push({
       'title': chapters[i].querySelector('.chapter__title').textContent,
-      'start': chapters[i].querySelector('.chapter__start').textContent,
-      'end': chapters[i].querySelector('.chapter__end').textContent,
+      'start': chapters[i].querySelector('.chapter__start').value,
+      'end': chapters[i].querySelector('.chapter__end').value,
       'origin': chapters[i].querySelector('.chapter__origin').textContent
     })
   }
@@ -176,28 +176,28 @@ document.querySelector('#exec-btn').addEventListener('click', (e) => {
   mapLimit(tasks, pNb, app.extract, (err, results) => {
     if (err !== null) process.stdout.write(err)
     process.stdout.write(results.toString())
-  })
-  // then group them
-  let groupsDOM = treeView.treeRoot.querySelectorAll('.group')
-  var groups = []
-  for (let i = 0; i < groupsDOM.length; i++) {
-    let chapters = groupsDOM[i].nextSibling.querySelectorAll('.chapter')
-    var g = {'title': '', 'length': '', 'items': []}
-    g.title = groupsDOM[i].querySelector('.group__title').textContent
-    g.length = chapters.length
-    for (let j = 0; j < chapters.length; j++) {
-      g.items.push({
-        'title': chapters[j].querySelector('.chapter__title').textContent,
-        'start': chapters[j].querySelector('.chapter__start').textContent,
-        'end': chapters[j].querySelector('.chapter__end').textContent,
-        'origin': chapters[j].querySelector('.chapter__origin').textContent
-      })
+    // then group them
+    let groupsDOM = treeView.treeRoot.querySelectorAll('.group')
+    var groups = []
+    for (let i = 0; i < groupsDOM.length; i++) {
+      let chapters = groupsDOM[i].nextSibling.querySelectorAll('.chapter')
+      var g = {'title': '', 'length': '', 'items': []}
+      g.title = groupsDOM[i].querySelector('.group__title').textContent
+      g.length = chapters.length
+      for (let j = 0; j < chapters.length; j++) {
+        g.items.push({
+          'title': chapters[j].querySelector('.chapter__title').textContent,
+          'start': chapters[j].querySelector('.chapter__start').value,
+          'end': chapters[j].querySelector('.chapter__end').value,
+          'origin': chapters[j].querySelector('.chapter__origin').textContent
+        })
+      }
+      groups.push(g)
     }
-    groups.push(g)
-  }
-  mapLimit(groups, pNb, app.concatenate, (err, results) => {
-    if (err !== null) process.stdout.write(err.toString())
-    process.stdout.write(results.toString())
+    mapLimit(groups, pNb, app.concatenate, (err, results) => {
+      if (err !== null) process.stdout.write(err.toString())
+      process.stdout.write(results.toString())
+    })
   })
 }, false)
 

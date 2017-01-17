@@ -2,6 +2,7 @@
 const remote = require('electron').remote
 const path = require('path') // Module to manipulate file/directory path
 const appRootDir = require('app-root-dir').get()
+var mapLimit = require('async').mapLimit
 const spawn = require('child_process').spawn // Module to execute command line
 const os = require('os') // Module to detect on which platform we are
 var fs = require('fs') // Module to read and write files
@@ -125,10 +126,14 @@ var app = (function (spawn, path) {
       process.stdout.write(fp + '\n')
       var ffMET = null
       if ((os.platform() === 'win32') && WINE) {
-        ffMET = spawn('wine', [FFMPEGPATH, '-i', fp, '-f', 'ffmetadata', '-'])
+        ffMET = spawn('wine', [FFMPEGPATH, '-i', fp, '-f', 'ffmetadata', '-'], {
+            detached: true
+          })
         process.stdout.write('wine' + ' ' + [FFMPEGPATH, '-i', fp, '-f', 'ffmetadata', '-'].join(' '))
       } else {
-        ffMET = spawn(FFMPEGPATH, ['-i', fp, '-f', 'ffmetadata', '-'])
+        ffMET = spawn(FFMPEGPATH, ['-i', fp, '-f', 'ffmetadata', '-'], {
+            detached: true
+          })
         process.stdout.write(FFMPEGPATH + ' ' + ['-i', fp, '-f', 'ffmetadata', '-'].join(' '))
       }
       // keep it active
@@ -153,9 +158,13 @@ var app = (function (spawn, path) {
       // and don't ask the user the permission to overwrite
       var ffEXT = null
       if ((os.platform() === 'win32') && WINE) {
-        ffEXT = spawn('wine', [FFMPEGPATH, '-i', '' + chapter.origin + '', '-c:v', 'libx264', '-crf', '18', '-an', '-ss', chapter.start, '-to', chapter.end, '-f', 'mp4', path.join(outputFolder, chapter.title.replace(':', ' ').replace('§', 'Para')) + '.mp4', '-y'])
+        ffEXT = spawn('wine', [FFMPEGPATH, '-i', '' + chapter.origin + '', '-c:v', 'libx264', '-crf', '18', '-an', '-ss', chapter.start, '-to', chapter.end, '-f', 'mp4', path.join(outputFolder, chapter.title.replace(':', ' ').replace('§', 'Para')) + '.mp4', '-y'], {
+            detached: true
+          })
       } else {
-        ffEXT = spawn(FFMPEGPATH, ['-i', '' + chapter.origin + '', '-c:v', 'libx264', '-crf', '18', '-an', '-ss', chapter.start, '-to', chapter.end, '-f', 'mp4', path.join(outputFolder, chapter.title.replace(':', ' ').replace('§', 'Para')) + '.mp4', '-y'])
+        ffEXT = spawn(FFMPEGPATH, ['-i', '' + chapter.origin + '', '-c:v', 'libx264', '-crf', '18', '-an', '-ss', chapter.start, '-to', chapter.end, '-f', 'mp4', path.join(outputFolder, chapter.title.replace(':', ' ').replace('§', 'Para')) + '.mp4', '-y'], {
+            detached: true
+          })
       }
       ffEXT.stdin.resume()
       ffEXT.stderr.on('data', (data) => {
@@ -169,72 +178,49 @@ var app = (function (spawn, path) {
       // ffEXT.on('error', error)
     },
     'concatenate': (group, callback) => {
-      // for each element look if exists
-      let ready = false
-      let i = 0
-      let conversion = false
-      let hasError = false
-      while (i < group.length && !ready) {
-        let chapter = group.items[i]
-        if (!conversion) {
-          ready = fs.existsSync(path.join(outputFolder, chapter.title.replace(':', ' ').replace('§', 'Para')) + '.mp4')
-          process.stdout.write(path.join(outputFolder, chapter.title.replace(':', ' ').replace('§', 'Para') + '.mp4') + ready ? ' true\n' : ' false\n')
-          if (ready) i++
-          else {
-            conversion = true
-            app.extract(chapter, () => {
-              ready = fs.existsSync(path.join(outputFolder, chapter.title.replace(':', ' ').replace('§', 'Para')) + '.mp4')
-              conversion = false
-              if (!ready) {
-                hasError = true
-                ready = true // skip and warn of error
-              }
-              i++
-            })
-          }
-        }
+      // create temporary concatenation files for ffmpeg
+      let timestamp = new Date().getUTCMilliseconds()
+      stdout[timestamp] = ''
+      let tmpPath = path.join(outputFolder, group.title.replace(':', ' ').replace('§', 'Para') + '.tmp')
+      process.stdout.write('creation of ' + tmpPath + '\n')
+      // if all ready generate temp concat file
+      let wstream = fs.createWriteStream(tmpPath, {
+        flags: 'w',
+        defaultEncoding: 'utf8',
+        fd: null,
+        mode: 0o666,
+        autoClose: true
+      })
+      for (let i = 0; i < group.length; i++) {
+        wstream.write('file \'' + path.join(outputFolder, group.items[i].title.replace(':', ' ').replace('§', 'Para') + '.mp4') + '\'\n')
       }
-      process.stdout.write(hasError ? ' Not Ready\n' : ' All Ready\n')
-      if (ready && !hasError) {
-        let timestamp = new Date().getUTCMilliseconds()
+      wstream.end()
+      // ffmpeg concat
+      let output = path.join(outputFolder, group.title.replace(':', ' ').replace('§', 'Para') + '.mp4')
+      console.log(output)
+      var ffEXT = null
+      if ((os.platform() === 'win32') && WINE) {
+        ffEXT = spawn('wine', [FFMPEGPATH, '-f', 'concat', '-i', tmpPath, '-c', 'copy', output, '-y'], {
+          detached: true
+        })
+      } else {
+        ffEXT = spawn(FFMPEGPATH, ['-f', 'concat', '-i', tmpPath, '-c', 'copy', output, '-y'], {
+          detached: true
+        })
+      }
+      ffEXT.stdin.resume()
+      ffEXT.stderr.on('data', (data) => {
+        __writeStdOut(timestamp, data)
+      })
+      ffEXT.on('close', (code) => {
+        let tmp = stdout[timestamp]
         stdout[timestamp] = ''
-        let tmpPath = path.join(outputFolder, group.title.replace(':', ' ').replace('§', 'Para') + '.tmp')
-        process.stdout.write('creation of ' + tmpPath + '\n')
-        // if all ready generate temp concat file
-        let wstream = fs.createWriteStream(tmpPath, {
-          flags: 'w',
-          defaultEncoding: 'utf8',
-          fd: null,
-          mode: 0o666,
-          autoClose: true
-        })
-        for (let i = 0; i < group.length; i++) {
-          wstream.write('file \'' + path.join(outputFolder, group.items[i].title.replace(':', ' ').replace('§', 'Para') + '.mp4') + '\'\n')
-        }
-        wstream.end()
-        // ffmpeg concat
-        let output = path.join(outputFolder, group.title.replace(':', ' ').replace('§', 'Para') + '.mp4')
-        console.log(output)
-        var ffEXT = null
-        if ((os.platform() === 'win32') && WINE) {
-          ffEXT = spawn('wine', [FFMPEGPATH, '-f', 'concat', '-i', tmpPath, '-c', 'copy', output, '-y'])
-        } else {
-          ffEXT = spawn(FFMPEGPATH, ['-f', 'concat', '-i', tmpPath, '-c', 'copy', output, '-y'])
-        }
-        ffEXT.stdin.resume()
-        ffEXT.stderr.on('data', (data) => {
-          __writeStdOut(timestamp, data)
-        })
-        ffEXT.on('close', (code) => {
-          let tmp = stdout[timestamp]
-          stdout[timestamp] = ''
-          fs.unlinkSync(tmpPath)
-          callback(code, tmp)
-        })
-        ffEXT.on('error', (err) => {
-          fs.unlinkSync(tmpPath)
-        })
-      }
+        fs.unlinkSync(tmpPath)
+        callback(code, tmp)
+      })
+      ffEXT.on('error', (err) => {
+        fs.unlinkSync(tmpPath)
+      })
     }
   }
 })(spawn, path)
@@ -242,6 +228,11 @@ var app = (function (spawn, path) {
 function createItem (chapter, callback) {
   var itemElt = document.createElement('li')
   itemElt.className = 'chapter'
+  var chkBox = document.createElement('input')
+  chkBox.type = 'checkbox'
+  chkBox.checked = false
+  chkBox.className = 'chapter__select'
+  itemElt.appendChild(chkBox)
   var spanElt = document.createElement('span')
   spanElt.className = 'chapter__title'
   spanElt.textContent = chapter.title
