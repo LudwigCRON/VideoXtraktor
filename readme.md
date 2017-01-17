@@ -1,29 +1,16 @@
 # Purposes
 This application based on electron is intended to make easier the life with mp4 video files. the two basic functionnalities are to extract part of them based on chapters embedded and to generate subtitles.
 
-# Caution
-Due to agressive power management on the some computers such as on mac, or kali linux, the kernel suspends processes.
+# Dependencies
+Based on the famous FFmpeg. The compiled dependencies for the big three OS (Linux, Windows, Mac OS) is place in node_modules/ffmpeg folder.
 
-to prevent the kernel to suspend the program, the following sections describe procedures for the 3 main OS on the market.
+# Features
+## Xtracktor
+- detect chapter embedded in the video
+- add new chapter/group of chapters
+- cut the video according to the chapter
+- remove chapters/group of chapters
 
-**Mac OS**
-
-run in a terminal
-```bash
-pmset noidle
-```
-or
-
-```bash
-caffeinate -i ...
-```
-
-**Linux**
-
-for each linux distro the installer should be select: while for ubuntu apt is the default installer, on fedora and red hat it is yum.
-
-```bash
-sudo add-apt-repository ppa:caffeine-developers/ppa
-sudo apt-get update
-sudo apt-get install caffeine
-```
+## Subtitles
+- add subtitles by pressing the space bar while viewing
+- previsualize them
