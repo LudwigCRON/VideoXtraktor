@@ -78,6 +78,7 @@ button[0].addEventListener('click', (e) => {
 
 button[1].addEventListener('click', (e) => {
   SubTitler.setOutputFile()
+  document.querySelector('.panel--main').focus()
 }, false)
 
 document.querySelector('#export-btn').addEventListener('click', (e) => {
@@ -89,11 +90,27 @@ document.querySelector('#reload-btn').addEventListener('click', (e) => {
 })
 
 document.querySelector('#add-btn').addEventListener('click', (e) => {
-
+  var type = (treeView.selectedNodes.length > 0) ? 'group' : 'item'
+  dialogs().prompt('Enter a name', (label) => {
+    // console.log(label, type)
+    if (label.length === 0) return
+    var node = (type === 'item') ? createItem(label) : createGroup(label)
+    var parentNode = treeView.selectedNodes[0]
+    if (parentNode != null && !parentNode.classList.contains('group')) {
+      parentNode = parentNode.parentElement.classList.contains('children') ? parentNode.parentElement.previousSibling : null
+    }
+    treeView.append(node, type, parentNode)
+  })
 })
 
 document.querySelector('#remove-btn').addEventListener('click', (e) => {
-
+  // remove those selected even without check
+  while (treeView.selectedNodes.length > 0) {
+    treeView.remove(treeView.selectedNodes[treeView.selectedNodes.length - 1])
+  }
+  // remove checked items
+  let elementsToRemove = [... document.querySelectorAll('.chapter__select:checked')].map((el, i) => {return el.parentNode})
+  for(let i=0; i<elementsToRemove.length; i++) treeView.remove(elementsToRemove[i])
 })
 
 document.addEventListener('keypress', (e) => {

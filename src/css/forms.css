@@ -5,11 +5,12 @@
 .panel--config input {
 	display: block;
 	background: rgba(255, 255, 255, 0.1);
-	padding: 0.5em 0.25em;
+	color: #fff;
+	padding: 0.5em;
 	border: none;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 	border-radius: 3px;
-	transition: border 0.15s 0.2s ease-in-out, background 0.35s ease-in-out;
+	transition: border 0.15s 0.2s ease-in-out, background 0.2s ease-in-out;
 }
 
 .panel--config input:focus, input:active {

@@ -103,13 +103,18 @@ var CutChapter = (function (app) {
 /*
  * event trigger for a stylish input file form
  */
-button[0].addEventListener('click', CutChapter.getInfo, false)
-button[1].addEventListener('click', CutChapter.setOutputFolder, false)
+button[0].addEventListener('click', (e) => {
+  CutChapter.getInfo()
+  document.querySelector('.panel--main').focus()
+}, false)
+
+button[1].addEventListener('click', (e) => {
+  CutChapter.setOutputFolder()
+  document.querySelector('.panel--main').focus()
+}, false)
 
 // deselect the row in the table
 document.querySelector('.panel--main').addEventListener('click', (e) => {
-  e.preventDefault()
-  e.stopPropagation()
   // delselect rows
   if (e.target.className.indexOf('panel--main') > -1) treeView.clearSelection()
   // disable the contentEditable
@@ -122,14 +127,6 @@ document.querySelector('.panel--main').addEventListener('click', (e) => {
 // create an item or a group if an item is selected
 document.querySelector('#add-group-btn').addEventListener('click', (event) => {
   var type = (treeView.selectedNodes.length > 0) ? 'group' : 'item'
-  /* electron.dialog.showMessageBox(electron.getCurrentWindow(), {
-    type: 'question',
-    buttons: ['cancel', 'create'],
-    cancelId: 0,
-    defaultId: 0,
-    title: 'Create a new group',
-    message: 'Enter a name:'
-  }) */
   dialogs().prompt('Enter a name', (label) => {
     // console.log(label, type)
     if (label.length === 0) return
@@ -144,9 +141,13 @@ document.querySelector('#add-group-btn').addEventListener('click', (event) => {
 
 // delete an item
 document.querySelector('#remove-btn').addEventListener('click', (e) => {
+  // remove those selected even without check
   while (treeView.selectedNodes.length > 0) {
     treeView.remove(treeView.selectedNodes[treeView.selectedNodes.length - 1])
   }
+  // remove checked items
+  let elementsToRemove = [... document.querySelectorAll('.chapter__select:checked')].map((el, i) => {return el.parentNode})
+  for(let i=0; i<elementsToRemove.length; i++) treeView.remove(elementsToRemove[i])
 }, false)
 
 // clone items
