@@ -6,6 +6,10 @@
   "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",
+    "pack": "electron-forge package",
+    "pack:win": "electron-forge package -p win32",
+    "pack:mac": "electron-forge package -p darwin",
+    "pack:lin": "electron-forge package -p linux",
     "lint": "eslint src"
   },
   "keywords": [],
@@ -15,7 +19,7 @@
     "forge": {
       "make_targets": {
         "win32": [
-          "squirrel"
+          "zip"
         ],
         "darwin": [
           "zip",
@@ -40,7 +44,10 @@
   },
   "dependencies": {
     "electron-compile": "^5.1.1",
-    "table-dragger": "^1.0.1"
+    "table-dragger": "^1.0.1",
+    "dialogs": "^1.0.0",
+    "app-root-dir": "^1.0.0",
+    "async": "^1.0.0"
   },
   "devDependencies": {
     "babel-preset-stage-0": "^6.16.0",
@@ -49,8 +56,6 @@
     "eslint-config-airbnb": "^13.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
-    "eslint-plugin-react": "^6.8.0",
-    "app-root-dir": "^1.0.0",
-    "async": "^1.0.0"
+    "eslint-plugin-react": "^6.8.0"
   }
 }
