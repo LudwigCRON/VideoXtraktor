@@ -1,10 +1,10 @@
-@import url('reset.css');
-@import url('panel.css');
-@import url('titlebar.css');
-@import url('button.css');
-@import url('table.css');
-@import url('forms.css');
-@import url('videoplayer.css');
+@import url('./reset.css');
+@import url('./panel.css');
+@import url('./titlebar.css');
+@import url('./button.css');
+@import url('./table.css');
+@import url('./forms.css');
+@import url('./videoplayer.css');
 
 /*
  * Dashboard
